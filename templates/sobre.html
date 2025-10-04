@@ -1,0 +1,142 @@
+{% extends "base.html" %}
+{% block title %}MedidaWeb{% endblock %}
+{% block content %}
+
+<style>
+/* HERO SOBRE */
+.sobre-hero {
+    background: linear-gradient(135deg, rgba(15,32,39,0.9), rgba(32,58,67,0.9), rgba(44,83,100,0.9));
+    color: #fff;
+    border-radius: 16px;
+    padding: 5rem 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    animation: fadeInUp 1s ease;
+}
+.sobre-hero h2 {
+    font-weight: 800;
+    font-size: 2.8rem;
+    margin-bottom: 1.2rem;
+    letter-spacing: 1px;
+}
+.sobre-hero p {
+    font-size: 1.2rem;
+    max-width: 780px;
+    margin: 0 auto;
+    color: rgba(255,255,255,0.95);
+    line-height: 1.8;
+}
+
+/* INTRO */
+.sobre-intro {
+    text-align: center;
+    margin: 3rem auto;
+    max-width: 850px;
+}
+.sobre-intro p {
+    font-size: 1.25rem;
+    color: #f1f1f1;
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+/* CARDS */
+.sobre-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+    gap: 2rem;
+    margin-top: 2.5rem;
+}
+.sobre-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
+    transition: transform .3s ease, box-shadow .3s ease;
+    animation: fadeInUp 1s ease;
+}
+.sobre-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+.sobre-card i {
+    font-size: 2.8rem;
+    color: #2c5364;
+    margin-bottom: 1rem;
+}
+.sobre-card h3 {
+    color: #203a43;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+    font-size: 1.5rem;
+}
+.sobre-card p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
+    from {opacity: 0; transform: translateY(30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .sobre-hero {
+        padding: 3.5rem 1.5rem;
+    }
+    .sobre-hero h2 {
+        font-size: 2.2rem;
+    }
+    .sobre-hero p {
+        font-size: 1rem;
+    }
+    .sobre-intro p {
+        font-size: 1.05rem;
+    }
+    .sobre-card {
+        padding: 2rem 1.5rem;
+    }
+    .sobre-card i {
+        font-size: 2.2rem;
+    }
+}
+</style>
+
+<!-- HERO -->
+<section class="sobre-hero">
+    <h2>Quem Sou</h2>
+    <p>Sou um freelancer apaixonado por tecnologia e design. Desenvolvo sites modernos, com foco em qualidade, usabilidade e resultados.</p>
+</section>
+
+<!-- INTRO -->
+<section class="sobre-intro">
+    <p>Acredito que cada projeto deve ser feito sob medida, como uma peça única. Meu objetivo é transformar ideias em experiências digitais que geram impacto positivo e resultados reais para meus clientes.</p>
+</section>
+
+<!-- CARDS -->
+<section>
+    <div class="sobre-cards">
+        <div class="sobre-card">
+            <i class="bi bi-bullseye"></i>
+            <h3>Missão</h3>
+            <p>Entregar soluções digitais criativas, funcionais e personalizadas, ajudando empresas e profissionais a crescer e se destacar online.</p>
+        </div>
+        <div class="sobre-card">
+            <i class="bi bi-lightbulb"></i>
+            <h3>Visão</h3>
+            <p>Ser reconhecido pela qualidade, inovação e compromisso em cada projeto desenvolvido, tornando-se referência em criação digital sob medida.</p>
+        </div>
+        <div class="sobre-card">
+            <i class="bi bi-heart"></i>
+            <h3>Valores</h3>
+            <p>Ética, transparência, inovação e dedicação total ao cliente em todas as etapas do processo de criação.</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+{% block title %}MedidaWeb{% endblock %}
+{% block content %}
+
+<style>
+    /* HERO */
+    .hero-section {
+        height: 100vh;
+        background: url("{{ url_for('static', filename='imagem/hero.png') }}") no-repeat center center/cover;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff; /* texto claro porque o fundo é escuro */
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+        animation: fadeIn 1.5s ease-in-out;
+    }
+    .hero-overlay {
+        position: absolute;
+        top:0; left:0; right:0; bottom:0;
+        background: rgba(15,32,39,0.6);
+    }
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width:900px;
+        animation: slideUp 1.5s ease-out;
+    }
+    .hero-content h1 {
+        font-size: 3.5rem;
+        font-weight: 800;
+        text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    }
+    .hero-content p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+
+    /* Botões */
+    .hero-buttons a {
+        margin: 0 12px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .hero-buttons a:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Benefícios */
+    .benefits {
+        margin-top: 70px;
+        margin-bottom: 70px;
+        color: #333;
+    }
+    .benefit-card {
+        background: #fff;
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+        transition: transform .3s, box-shadow .3s;
+        height: 100%;
+    }
+    .benefit-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    .benefit-card i {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+        animation: pulse 2s infinite;
+    }
+    .benefit-card h5 {
+        font-weight: 700;
+    }
+
+    /* Galeria */
+    .gallery {
+        background: #f5f5f5;
+        padding: 60px 20px;
+        border-radius: 15px;
+        color: #333;
+    }
+    .gallery img {
+        border-radius: 14px;
+        transition: transform .4s ease, box-shadow .4s ease;
+        width: 100%;
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+    }
+    .gallery img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+    }
+
+    /* Video */
+    .video-section {
+        margin-top: 90px;
+        margin-bottom: 90px;
+        text-align: center;
+        color: #fff;
+    }
+    .video-section video {
+        width: 100%;
+        max-width: 1000px;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+    }
+
+    /* Botões Flutuantes */
+    .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        z-index: 999;
+    }
+    .floating-buttons a {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-size: 28px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transition: transform .3s ease;
+    }
+    .floating-buttons a:hover {
+        transform: scale(1.1);
+    }
+    .floating-buttons .whatsapp {
+        background-color: #25D366;
+    }
+    .floating-buttons .instagram {
+        background: radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af, #515bd4);
+    }
+
+    /* Scroll Reveal */
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    [data-reveal].active {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Animações extras */
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+    @keyframes slideUp {
+        from {transform: translateY(50px); opacity: 0;}
+        to {transform: translateY(0); opacity: 1;}
+    }
+    @keyframes pulse {
+        0% {transform: scale(1);}
+        50% {transform: scale(1.1);}
+        100% {transform: scale(1);}
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+        .hero-content h1 {
+            font-size: 2rem;
+        }
+        .hero-content p {
+            font-size: 1rem;
+        }
+        .video-section video {
+            height: auto;
+        }
+        .floating-buttons a {
+            width: 48px;
+            height: 48px;
+            font-size: 24px;
+        }
+    }
+</style>
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-content container" data-reveal>
+        <h1>Crio sites sob medida que encantam e convertem</h1>
+        <p>Design estratégico, código limpo e soluções digitais que geram resultados.</p>
+        <div class="hero-buttons">
+            <a href="#portfolio" class="btn btn-success btn-lg">Ver Projetos</a>
+            <a href="https://wa.me/27988392915" target="_blank" class="btn btn-outline-light btn-lg">Fale no WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- BENEFÍCIOS -->
+<section class="benefits container text-center">
+    <div class="row g-4">
+        <div class="col-md-3 col-6" data-reveal>
+            <div class="benefit-card h-100">
+                <i class="bi bi-clock-history"></i>
+                <h5>Resposta em 24h</h5>
+                <p>Atendimento rápido e objetivo para não perder tempo.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6" data-reveal>
+            <div class="benefit-card h-100">
+                <i class="bi bi-arrow-repeat"></i>
+                <h5>2 Revisões Gratuitas</h5>
+                <p>Garantia de ajustes após entrega sem custo extra.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6" data-reveal>
+            <div class="benefit-card h-100">
+                <i class="bi bi-camera-video"></i>
+                <h5>Videochamada</h5>
+                <p>Alinhamento de projeto direto e claro.</p>
+            </div>
+        </div>
+        <div class="col-md-3 col-6" data-reveal>
+            <div class="benefit-card h-100">
+                <i class="bi bi-whatsapp"></i>
+                <h5>Atendimento Direto</h5>
+                <p>Contato pelo WhatsApp para maior praticidade.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- GALERIA -->
+<section id="portfolio" class="gallery container my-5">
+    <h2 class="text-center mb-5">Meus Projetos</h2>
+    <div class="row g-4">
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto1.png') }}" alt="Projeto 1" class="img-fluid">
+        </div>
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto2.png') }}" alt="Projeto 2" class="img-fluid">
+        </div>
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto3.png') }}" alt="Projeto 3" class="img-fluid">
+        </div>
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto4.png') }}" alt="Projeto 4" class="img-fluid">
+        </div>
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto5.png') }}" alt="Projeto 5" class="img-fluid">
+        </div>
+        <div class="col-md-4 col-12" data-reveal>
+            <img src="{{ url_for('static', filename='imagem/projeto6.png') }}" alt="Projeto 6" class="img-fluid">
+        </div>
+    </div>
+</section>
+
+<!-- VÍDEO -->
+<section class="video-section" data-reveal>
+    <h2 class="mb-4">Projeto em Destaque</h2>
+    <div style="position:relative; padding-bottom:45%; height:0; overflow:hidden; max-width:1150px; margin:0 auto; background:#000; border-radius:15px; box-shadow:0 10px 35px rgba(0,0,0,0.2);">
+        <iframe src="https://player.vimeo.com/video/1124364257"
+                style="position:absolute; top:0; left:0; width:100%; height:100%;"
+                frameborder="0"
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+    </div>
+</section>
+
+<!-- BOTÕES FLUTUANTES -->
+<div class="floating-buttons">
+    <a href="https://wa.me/27988392915" target="_blank" class="whatsapp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+    <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram">
+        <i class="bi bi-instagram"></i>
+    </a>
+</div>
+
+<!-- JS para Scroll Reveal -->
+<script>
+    const reveals = document.querySelectorAll("[data-reveal]");
+    const revealOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+            if(top < windowHeight - 50) {
+                el.classList.add("active");
+            }
+        });
+    };
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+</script>
+
+{% endblock %}

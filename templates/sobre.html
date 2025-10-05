@@ -86,23 +86,74 @@
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
+    /* HERO ajustado para mobile */
     .sobre-hero {
-        padding: 3.5rem 1.5rem;
+        padding: 3.5rem 1.2rem;
+        margin-bottom: 2rem;
+        border-radius: 0;
+        background: linear-gradient(145deg, rgba(15,32,39,0.95), rgba(32,58,67,0.95));
     }
     .sobre-hero h2 {
-        font-size: 2.2rem;
+        font-size: 2rem;
+        margin-bottom: 1rem;
     }
     .sobre-hero p {
         font-size: 1rem;
+        line-height: 1.6;
+        padding: 0 10px;
+    }
+
+    /* INTRO */
+    .sobre-intro {
+        margin: 2rem auto;
+        padding: 0 1rem;
     }
     .sobre-intro p {
         font-size: 1.05rem;
+        line-height: 1.7;
+        color: #e8e8e8;
+    }
+
+    /* CARDS */
+    .sobre-cards {
+        gap: 1.5rem;
+        margin-top: 2rem;
     }
     .sobre-card {
         padding: 2rem 1.5rem;
+        border-radius: 14px;
+        margin: 0 0.5rem;
     }
     .sobre-card i {
         font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    .sobre-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    .sobre-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+}
+
+/* AJUSTE EXTRA PARA TELAS MUITO PEQUENAS */
+@media (max-width: 480px) {
+    .sobre-hero {
+        padding: 3rem 1rem;
+    }
+    .sobre-hero h2 {
+        font-size: 1.8rem;
+    }
+    .sobre-hero p {
+        font-size: 0.95rem;
+    }
+    .sobre-card {
+        padding: 1.8rem 1.2rem;
+    }
+    .sobre-card p {
+        font-size: 0.9rem;
     }
 }
 </style>

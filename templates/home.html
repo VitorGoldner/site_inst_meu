@@ -11,7 +11,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        color: #fff; /* texto claro porque o fundo é escuro */
+        color: #fff;
         border-radius: 12px;
         position: relative;
         overflow: hidden;
@@ -27,6 +27,7 @@
         z-index: 2;
         max-width:900px;
         animation: slideUp 1.5s ease-out;
+        padding: 0 20px;
     }
     .hero-content h1 {
         font-size: 3.5rem;
@@ -169,21 +170,66 @@
         100% {transform: scale(1);}
     }
 
-    /* Responsividade */
+    /* Responsividade aprimorada */
     @media (max-width: 768px) {
+        .hero-section {
+            height: 80vh;
+            background-position: center top;
+            background-size: cover;
+        }
+        .hero-content {
+            padding: 0 15px;
+        }
         .hero-content h1 {
-            font-size: 2rem;
+            font-size: 1.9rem;
+            line-height: 1.3;
         }
         .hero-content p {
             font-size: 1rem;
+            margin-bottom: 25px;
         }
-        .video-section video {
-            height: auto;
+        .hero-buttons a {
+            display: block;
+            width: 80%;
+            margin: 8px auto;
+            font-size: 1rem;
+            padding: 12px 0;
         }
-        .floating-buttons a {
-            width: 48px;
-            height: 48px;
-            font-size: 24px;
+
+        /* Cards empilhados e harmônicos */
+        .benefits {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .benefit-card {
+            padding: 20px 15px;
+            margin-bottom: 15px;
+        }
+        .benefit-card i {
+            font-size: 2rem;
+        }
+        .benefit-card h5 {
+            font-size: 1rem;
+        }
+        .benefit-card p {
+            font-size: 0.9rem;
+        }
+    }
+
+    /* Ajustes para telas menores ainda */
+    @media (max-width: 480px) {
+        .hero-section {
+            height: 75vh;
+        }
+        .hero-content h1 {
+            font-size: 1.6rem;
+        }
+        .hero-content p {
+            font-size: 0.95rem;
+        }
+        .hero-buttons a {
+            width: 90%;
+            font-size: 0.95rem;
         }
     }
 </style>
@@ -278,7 +324,7 @@
     <a href="https://wa.me/27988392915" target="_blank" class="whatsapp">
         <i class="bi bi-whatsapp"></i>
     </a>
-    <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram">
+    <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram">
         <i class="bi bi-instagram"></i>
     </a>
 </div>

@@ -215,18 +215,23 @@
         }
     }
 
-    /* --- MELHORIA REAL DE AJUSTE PARA CELULAR (boas-vindas) --- */
+    /* --- AJUSTE REAL DE CELULAR (imagem completa, sem sobras) --- */
     @media (max-width: 768px) {
         .hero-section {
-            height: 65vh !important;
-            background-position: center 35% !important;
+            height: 100vh !important;
             background-size: contain !important;
             background-repeat: no-repeat !important;
-            border-radius: 0.5rem;
+            background-position: center center !important;
+            background-color: #0f2027 !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 !important;
+            margin: 0 !important;
         }
         .hero-content {
-            max-width: 90%;
-            padding: 0.5rem;
+            padding: 1rem !important;
+            text-align: center;
         }
         .hero-content h1 {
             font-size: 1.8rem !important;
@@ -239,16 +244,11 @@
 
     @media (max-width: 480px) {
         .hero-section {
-            height: 55vh !important;
+            height: 100vh !important;
             background-size: contain !important;
-            background-position: center 40% !important;
-            border-radius: 0;
-        }
-        .hero-content h1 {
-            font-size: 1.6rem !important;
-        }
-        .hero-content p {
-            font-size: 0.95rem !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-color: #0f2027 !important;
         }
     }
 </style>

@@ -170,22 +170,19 @@
     100% {transform: scale(1);}
 }
 
-/* Ajustes responsivos específicos */
+/* Ajustes responsivos */
 @media (max-width: 768px) {
     .hero-section {
-        height: 100dvh !important;
-        background: url("{{ url_for('static', filename='imagem/hero.png') }}") no-repeat center center / contain !important;
-        background-color: #0f2027 !important;
+        height: 100vh !important;
+        background-position: center center !important;
+        background-size: contain !important; /* Mostra imagem inteira */
+        background-color: #0f2027 !important; /* Fundo neutro para completar espaços */
         background-repeat: no-repeat !important;
-        display: flex;
-        align-items: flex-end; /* conteúdo mais embaixo */
-        justify-content: center;
-        padding-bottom: 8vh; /* equilíbrio visual */
+        padding: 2rem 0;
     }
     .hero-content {
         padding: 0 1rem;
         max-width: 90%;
-        text-align: center;
     }
     .hero-content h1 {
         font-size: 1.9rem !important;
@@ -200,23 +197,42 @@
         width: 80%;
         margin: 8px auto;
     }
+
+    /* Ajuste de cards no mobile */
+    .benefit-card {
+        padding: 20px 15px;
+        margin: 10px 0;
+        text-align: center;
+    }
+    .benefit-card i {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .benefit-card h5 {
+        font-size: 1rem;
+        margin-bottom: 8px;
+    }
+    .benefit-card p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Ajuste extra para telas muito pequenas */
 @media (max-width: 480px) {
     .hero-section {
-        height: 100dvh !important;
+        height: 100vh !important;
         background-position: center center !important;
         background-size: contain !important;
         background-color: #0f2027 !important;
-        align-items: flex-end;
-        padding-bottom: 10vh;
     }
     .hero-content h1 {
-        font-size: 1.7rem !important;
+        font-size: 1.6rem !important;
     }
     .hero-content p {
         font-size: 0.95rem !important;
+    }
+    .benefit-card {
+        padding: 18px 12px;
     }
 }
 </style>

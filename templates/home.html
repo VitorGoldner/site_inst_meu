@@ -170,14 +170,14 @@
     100% {transform: scale(1);}
 }
 
-/* Ajustes responsivos */
+/* ===== AJUSTE ESPECIAL PARA CELULAR ===== */
 @media (max-width: 768px) {
     .hero-section {
         height: 100dvh !important;
         background-position: center center !important;
-        background-size: contain !important; /* Mostra imagem inteira */
-        background-color: #0f2027 !important; /* Cor de fundo da imagem */
-        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        transform: scale(1.05); /* pequeno zoom pra eliminar espaços */
+        background-color: #0f2027;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -201,13 +201,13 @@
     }
 }
 
-/* Ajuste extra para telas pequenas */
+/* Para telas muito pequenas */
 @media (max-width: 480px) {
     .hero-section {
         height: 100dvh !important;
         background-position: center center !important;
-        background-size: contain !important;
-        background-color: #0f2027 !important;
+        background-size: cover !important;
+        transform: scale(1.08); /* zoom leve adicional */
     }
     .hero-content h1 {
         font-size: 1.7rem !important;

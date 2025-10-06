@@ -11,7 +11,7 @@
         align-items: center;
         justify-content: center;
         text-align: center;
-        color: #fff; /* texto claro porque o fundo é escuro */
+        color: #fff;
         border-radius: 12px;
         position: relative;
         overflow: hidden;
@@ -170,7 +170,7 @@
         100% {transform: scale(1);}
     }
 
-    /* Responsividade aprimorada */
+    /* Ajustes responsivos originais */
     @media (max-width: 768px) {
         .hero-section {
             height: 80vh;
@@ -196,7 +196,6 @@
             padding: 12px 0;
         }
 
-        /* Cards empilhados e harmônicos */
         .benefits {
             margin-top: 50px;
             margin-bottom: 50px;
@@ -216,42 +215,18 @@
         }
     }
 
-    /* Ajustes para telas menores ainda */
-    @media (max-width: 480px) {
-        .hero-section {
-            height: 75vh;
-        }
-        .hero-content h1 {
-            font-size: 1.6rem;
-        }
-        .hero-content p {
-            font-size: 0.95rem;
-        }
-        .hero-buttons a {
-            width: 90%;
-            font-size: 0.95rem;
-        }
-    }
-
-    /* MELHORIA PARA CELULAR - SEÇÃO DE BOAS-VINDAS / HERO (override mínimo) */
-    /* Este bloco faz apenas ajustes na hero para mobile sem alterar nada do resto */
+    /* --- MELHORIA REAL DE AJUSTE PARA CELULAR (boas-vindas) --- */
     @media (max-width: 768px) {
         .hero-section {
-            /* reduzir altura no mobile para não ocupar tela inteira */
-            height: 60vh !important;
-            /* garantir enquadramento visual mais confortável */
-            background-position: center 20% !important;
-            background-size: cover !important;
-            background-attachment: scroll !important;
-            /* diminuir cantos para parecer mais fluido no celular */
+            height: 65vh !important;
+            background-position: center 35% !important;
+            background-size: contain !important;
+            background-repeat: no-repeat !important;
             border-radius: 0.5rem;
-            padding-top: 1.6rem;
-            padding-bottom: 1.6rem;
         }
         .hero-content {
-            max-width: 92%;
-            padding-left: 0.8rem;
-            padding-right: 0.8rem;
+            max-width: 90%;
+            padding: 0.5rem;
         }
         .hero-content h1 {
             font-size: 1.8rem !important;
@@ -259,36 +234,21 @@
         }
         .hero-content p {
             font-size: 1rem !important;
-            margin-bottom: 1rem !important;
-        }
-        .hero-buttons a {
-            display: block;
-            width: 88%;
-            margin: 0.5rem auto;
-            font-size: 0.98rem;
-            padding: 0.7rem 0;
         }
     }
 
     @media (max-width: 480px) {
         .hero-section {
-            /* ainda mais compacto em telas muito pequenas */
-            height: 50vh !important;
-            background-position: center 15% !important;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            border-radius: 0; /* ocupar largura completa no celular muito pequeno */
+            height: 55vh !important;
+            background-size: contain !important;
+            background-position: center 40% !important;
+            border-radius: 0;
         }
         .hero-content h1 {
-            font-size: 1.5rem !important;
+            font-size: 1.6rem !important;
         }
         .hero-content p {
             font-size: 0.95rem !important;
-        }
-        .hero-buttons a {
-            width: 94%;
-            font-size: 0.9rem;
-            padding: 0.65rem 0;
         }
     }
 </style>

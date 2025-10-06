@@ -170,21 +170,22 @@
     100% {transform: scale(1);}
 }
 
-/* ===== AJUSTE ESPECIAL PARA CELULAR ===== */
+/* Ajustes responsivos específicos */
 @media (max-width: 768px) {
     .hero-section {
         height: 100dvh !important;
-        background-position: center center !important;
-        background-size: cover !important;
-        transform: scale(1.05); /* pequeno zoom pra eliminar espaços */
-        background-color: #0f2027;
+        background: url("{{ url_for('static', filename='imagem/hero.png') }}") no-repeat center center / contain !important;
+        background-color: #0f2027 !important;
+        background-repeat: no-repeat !important;
         display: flex;
-        align-items: center;
+        align-items: flex-end; /* conteúdo mais embaixo */
         justify-content: center;
+        padding-bottom: 8vh; /* equilíbrio visual */
     }
     .hero-content {
         padding: 0 1rem;
-        max-width: 95%;
+        max-width: 90%;
+        text-align: center;
     }
     .hero-content h1 {
         font-size: 1.9rem !important;
@@ -201,13 +202,15 @@
     }
 }
 
-/* Para telas muito pequenas */
+/* Ajuste extra para telas muito pequenas */
 @media (max-width: 480px) {
     .hero-section {
         height: 100dvh !important;
         background-position: center center !important;
-        background-size: cover !important;
-        transform: scale(1.08); /* zoom leve adicional */
+        background-size: contain !important;
+        background-color: #0f2027 !important;
+        align-items: flex-end;
+        padding-bottom: 10vh;
     }
     .hero-content h1 {
         font-size: 1.7rem !important;

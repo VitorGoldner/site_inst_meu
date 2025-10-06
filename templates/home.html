@@ -173,12 +173,14 @@
 /* Ajustes responsivos */
 @media (max-width: 768px) {
     .hero-section {
-        min-height: 10dvh !important;
-        background-position: center center !important;
-        background-size: contain !important; /* Mostra imagem inteira */
-        background-color: #0f2027 !important; /* Fundo neutro para completar espaços */
+        min-height: 125dvh !important;
+        background-position: center top !important;
+        background-size: cover !important; /* use cover para preencher */
+        background-color: #0f2027 !important;
         background-repeat: no-repeat !important;
-        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
     .hero-content {
         padding: 0 1rem;

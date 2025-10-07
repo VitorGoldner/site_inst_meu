@@ -1,198 +1,240 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}{% endblock %}</title>
 
-    <!-- Fonte Montserrat -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <!-- Fonte Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 
-    <style>
-        :root {
-            --brand-dark: #0f2027;
-            --brand-mid: #203a43;
-            --brand-soft: #2c5364;
-            --accent: #25d366;
-        }
+  <style>
+    :root {
+      --brand-dark: #0f2027;
+      --brand-mid:  #203a43;
+      --brand-soft: #2c5364;
+      --accent:     #25d366;
+      --nav-bg: rgba(15,32,39,0.88);
+      --nav-bg-mobile: rgba(15,32,39,0.96);
+      --nav-border: rgba(255,255,255,0.06);
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--brand-dark), var(--brand-mid), var(--brand-soft));
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, var(--brand-dark), var(--brand-mid), var(--brand-soft));
+      margin: 0; padding: 0; color: #fff;
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    }
+    body.menu-open { overflow: hidden; } /* trava scroll quando menu aberto */
 
-        /* Navbar */
-        .site-navbar {
-            backdrop-filter: blur(14px);
-            background: rgba(15,32,39,0.85);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            z-index: 1200;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-        }
-        .site-navbar .navbar-brand {
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: 0.5px;
-        }
-        .site-navbar .nav-link {
-            color: rgba(255,255,255,0.85);
-            font-weight: 600;
-            padding: .65rem .9rem;
-        }
-        .site-navbar .nav-link:hover,
-        .site-navbar .nav-link.active {
-            color: #fff;
-            border-bottom: 2px solid var(--accent);
-        }
+    /* Navbar */
+    .site-navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1200;
+      backdrop-filter: blur(14px);
+      background: var(--nav-bg);
+      border-bottom: 1px solid var(--nav-border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+    }
+    .site-navbar .navbar-brand {
+      font-weight: 800; color: #fff; letter-spacing: .5px;
+    }
+    .site-navbar .nav-link {
+      color: rgba(255,255,255,0.88);
+      font-weight: 600;
+      padding: .65rem .9rem;
+      border-bottom: 2px solid transparent;
+    }
+    .site-navbar .nav-link:hover,
+    .site-navbar .nav-link.active {
+      color: #fff;
+      border-bottom-color: var(--accent);
+    }
 
-        .site-wrapper {
-            padding-top: 80px;
-        }
+    /* Toggler maior e clicável */
+    .navbar-toggler {
+      border: none;
+      outline: none !important;
+      padding: .35rem .55rem;
+      font-size: 1.6rem;
+      color: #fff;
+    }
+    .navbar-toggler:focus { box-shadow: none; }
 
-        /* HERO */
-        .hero-section {
-            width: 100%;
-            min-height: 100vh;
-            background: url("{{ url_for('static', filename='imagem/hero.png') }}") no-repeat center center;
-            background-size: cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            border-radius: 0;
-        }
-        .hero-overlay {
-            position: absolute;
-            top:0; left:0; right:0; bottom:0;
-            background: rgba(0,0,0,0.5);
-        }
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-        }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-weight: 800;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-        }
+    /* Wrapper principal (evita que o fixed-navbar cubra conteúdo) */
+    .site-wrapper { padding-top: 80px; }
 
-        /* Galeria */
-        .gallery {
-            padding: 60px 20px;
-        }
-        .gallery img {
-            border-radius: 12px;
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            transition: transform .3s ease, box-shadow .3s ease;
-        }
-        .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-        }
+    /* HERO (mantido) */
+    .hero-section {
+      width: 100%;
+      min-height: 100vh;
+      background: url("{{ url_for('static', filename='imagem/hero.png') }}") no-repeat center center / cover;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; color: #fff; position: relative; border-radius: 0;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .hero-content h1 { font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); }
+    .hero-content p  { font-size: 1.2rem; }
 
-        /* Footer */
-        footer.site-footer {
-            background: transparent;
-            color: #fff;
-            padding: 30px 0;
-        }
-        .site-footer a {
-            color: #fff;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color .3s ease;
-        }
-        .site-footer a:hover {
-            color: var(--accent);
-        }
+    /* Galeria (mantido) */
+    .gallery { padding: 60px 20px; }
+    .gallery img {
+      border-radius: 12px; width: 100%; height: 300px; object-fit: cover;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .gallery img:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
 
-        /* Responsivo */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .gallery img {
-                height: 220px;
-            }
+    /* Footer (mantido) */
+    footer.site-footer { background: transparent; color: #fff; padding: 30px 0; }
+    .site-footer a { color: #fff; margin: 0 10px; font-size: 1.5rem; transition: color .3s ease; }
+    .site-footer a:hover { color: var(--accent); }
 
-            /* 🔹 Melhorias mobile refinadas */
-            .hero-section {
-                min-height: 110dvh;
-                background-size: contain;
-                background-position: center center;
-                background-color: #0f2027;
-                background-repeat: no-repeat;
-            }
+    /* ---------- Mobile Styles ---------- */
+    @media (max-width: 991.98px) {
+      /* Colapsado com cara de "offcanvas", mas usando collapse padrão */
+      .site-navbar .navbar-collapse {
+        background: var(--nav-bg-mobile);
+        border: 1px solid var(--nav-border);
+        border-radius: 12px;
+        padding: .75rem;
+        margin-top: .5rem;
+      }
+      .site-navbar .navbar-nav .nav-link {
+        padding: .85rem 1rem;
+        border-radius: 10px;
+        margin: .15rem 0;
+        line-height: 1.2;
+      }
+      .site-navbar .navbar-nav .nav-link:active {
+        background: rgba(255,255,255,0.06);
+      }
 
-            .navbar-toggler {
-                border: none;
-                font-size: 1.8rem;
-            }
+      /* backdrop ao abrir menu */
+      .menu-backdrop {
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,0.35);
+        backdrop-filter: blur(2px);
+        opacity: 0; visibility: hidden;
+        transition: opacity .2s ease;
+        z-index: 1100; /* abaixo da navbar (1200) porém acima do conteúdo */
+      }
+      .menu-backdrop.show { opacity: 1; visibility: visible; }
 
-            .navbar-collapse {
-                background: rgba(15,32,39,0.95);
-                border-radius: 10px;
-                padding: 1rem;
-            }
+      /* Ajustes hero no mobile (mantendo seu visual) */
+      .hero-content h1 { font-size: 2rem; }
+      .hero-content p  { font-size: 1rem; }
+      .gallery img { height: 220px; }
 
-            .site-wrapper {
-                padding-top: 90px;
-            }
-        }
-    </style>
+      /* refinamento do hero p/ imagens altas */
+      .hero-section {
+        min-height: 110dvh;
+        background-size: cover;    /* prioriza preencher */
+        background-position: center 35%;
+        background-color: #0f2027;
+        background-repeat: no-repeat;
+      }
+
+      .site-wrapper { padding-top: 90px; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg site-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="/">MedidaWeb</a>
-            <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <i class="bi bi-list"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="/">Início</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/sobre">Sobre</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg site-navbar" role="navigation" aria-label="Barra de navegação principal">
+    <div class="container">
+      <a class="navbar-brand" href="/">MedidaWeb</a>
 
-    <!-- Conteúdo -->
-    <div class="site-wrapper">
-        {% block content %}{% endblock %}
+      <button class="navbar-toggler" type="button"
+              data-bs-toggle="collapse" data-bs-target="#menu"
+              aria-controls="menu" aria-expanded="false" aria-label="Alternar navegação">
+        <i class="bi bi-list"></i>
+      </button>
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link{% if request.path == '/' %} active{% endif %}" href="/">Início</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{% if request.path.startswith('/sobre') %} active{% endif %}" href="/sobre">Sobre</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="site-footer text-center">
-        <div class="mb-3">
-            <a href="https://github.com/VitorGoldner" target="_blank"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank"><i class="bi bi-linkedin"></i></a>
-        </div>
-        <small>&copy; {{ 2025 }} MedidaWeb. Todos os direitos reservados.</small>
-    </footer>
+  <!-- Backdrop para o menu mobile -->
+  <div class="menu-backdrop" id="menuBackdrop" hidden></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Conteúdo -->
+  <div class="site-wrapper">
+    {% block content %}{% endblock %}
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer text-center">
+    <div class="mb-3">
+      <a href="https://github.com/VitorGoldner" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+      <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+    </div>
+    <small>&copy; {{ 2025 }} MedidaWeb. Todos os direitos reservados.</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (function () {
+      const menu   = document.getElementById('menu');
+      const back   = document.getElementById('menuBackdrop');
+      const nav    = document.querySelector('.site-navbar');
+      const links  = menu ? menu.querySelectorAll('.nav-link') : [];
+
+      if (!menu || !back) return;
+
+      const showBackdrop = () => {
+        back.hidden = false;
+        back.classList.add('show');
+        document.body.classList.add('menu-open');
+      };
+      const hideBackdrop = () => {
+        back.classList.remove('show');
+        // espera a transição para esconder de vez
+        setTimeout(() => { back.hidden = true; }, 150);
+        document.body.classList.remove('menu-open');
+      };
+
+      menu.addEventListener('shown.bs.collapse', showBackdrop);
+      menu.addEventListener('hidden.bs.collapse', hideBackdrop);
+
+      // Fecha ao clicar fora do menu (somente no mobile)
+      back.addEventListener('click', () => {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menu);
+        bsCollapse.hide();
+      });
+
+      // Fecha ao clicar em qualquer link do menu
+      links.forEach(a => a.addEventListener('click', () => {
+        const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menu);
+        bsCollapse.hide();
+      }));
+
+      // Evita que o conteúdo "salte" quando a barra fixa aparece
+      // (caso mude a altura no futuro)
+      const adjustWrapperPadding = () => {
+        const wrapper = document.querySelector('.site-wrapper');
+        if (!wrapper || !nav) return;
+        const h = nav.getBoundingClientRect().height;
+        wrapper.style.paddingTop = Math.round(h) + 'px';
+      };
+      adjustWrapperPadding();
+      window.addEventListener('resize', adjustWrapperPadding);
+    })();
+  </script>
 </body>
 </html>

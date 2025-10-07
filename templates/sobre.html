@@ -1,193 +1,196 @@
 {% extends "base.html" %}
-{% block title %}MedidaWeb{% endblock %}
+{% block title %}Sobre • MedidaWeb{% endblock %}
 {% block content %}
 
 <style>
-/* HERO SOBRE */
-.sobre-hero {
-    background: linear-gradient(135deg, rgba(15,32,39,0.9), rgba(32,58,67,0.9), rgba(44,83,100,0.9));
-    color: #fff;
-    border-radius: 16px;
-    padding: 5rem 2rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    animation: fadeInUp 1s ease;
-}
-.sobre-hero h2 {
-    font-weight: 800;
-    font-size: 2.8rem;
-    margin-bottom: 1.2rem;
-    letter-spacing: 1px;
-}
-.sobre-hero p {
-    font-size: 1.2rem;
-    max-width: 780px;
-    margin: 0 auto;
-    color: rgba(255,255,255,0.95);
-    line-height: 1.8;
+/* ======= RESET FINO PARA EVITAR ESTOURO ======= */
+* { box-sizing: border-box; }
+.sobre-wrap {
+  width: 100%;
+  max-width: 1200px;       /* evita passar da tela no desktop grande */
+  margin: 0 auto;
+  padding-inline: clamp(12px, 3vw, 24px);
 }
 
-/* INTRO */
-.sobre-intro {
-    text-align: center;
-    margin: 3rem auto;
-    max-width: 850px;
+/* ======= HERO ======= */
+.sobre-hero{
+  --g1: rgba(15,32,39,0.92);
+  --g2: rgba(32,58,67,0.92);
+  --g3: rgba(44,83,100,0.92);
+  background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3));
+  color:#fff;
+  border-radius: 18px;
+  padding: clamp(2rem, 4.5vw, 4.5rem) clamp(1rem, 3vw, 2rem);
+  text-align:center;
+  margin: clamp(1rem, 3.5vw, 2.5rem) 0;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  animation: fadeInUp .7s ease both;
 }
-.sobre-intro p {
-    font-size: 1.25rem;
-    color: #f1f1f1;
-    line-height: 1.8;
-    font-weight: 400;
+.sobre-hero h2{
+  font-weight:800;
+  font-size: clamp(1.6rem, 4.3vw, 2.6rem);
+  margin-bottom:.7rem;
+  letter-spacing:.4px;
+  line-height:1.1;
 }
-
-/* CARDS */
-.sobre-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-    gap: 2rem;
-    margin-top: 2.5rem;
-}
-.sobre-card {
-    background: #fff;
-    border-radius: 18px;
-    padding: 2.5rem;
-    text-align: center;
-    box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-    transition: transform .3s ease, box-shadow .3s ease;
-    animation: fadeInUp 1s ease;
-}
-.sobre-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.25);
-}
-.sobre-card i {
-    font-size: 2.8rem;
-    color: #2c5364;
-    margin-bottom: 1rem;
-}
-.sobre-card h3 {
-    color: #203a43;
-    font-weight: 700;
-    margin-bottom: 1.2rem;
-    font-size: 1.5rem;
-}
-.sobre-card p {
-    color: #555;
-    line-height: 1.8;
-    font-size: 1.05rem;
+.sobre-hero p{
+  font-size: clamp(0.98rem, 2.2vw, 1.18rem);
+  max-width: 880px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.95);
+  line-height: 1.75;
 }
 
-/* ANIMAÇÕES */
-@keyframes fadeInUp {
-    from {opacity: 0; transform: translateY(30px);}
-    to {opacity: 1; transform: translateY(0);}
+/* ======= INTRO ======= */
+.sobre-intro{
+  text-align:center;
+  margin: clamp(1.2rem, 3.5vw, 2.5rem) auto;
+  max-width: 980px;
+}
+.sobre-intro p{
+  font-size: clamp(1rem, 2.3vw, 1.22rem);
+  color: #f1f1f1;
+  line-height: 1.85;
+  font-weight: 400;
+  margin: 0;
 }
 
-/* RESPONSIVIDADE */
-@media (max-width: 768px) {
-    /* HERO ajustado para mobile */
-    .sobre-hero {
-        padding: 3.5rem 1.2rem;
-        margin-bottom: 2rem;
-        border-radius: 0;
-        background: linear-gradient(145deg, rgba(15,32,39,0.95), rgba(32,58,67,0.95));
-    }
-    .sobre-hero h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-    }
-    .sobre-hero p {
-        font-size: 1rem;
-        line-height: 1.6;
-        padding: 0 10px;
-    }
-
-    /* INTRO */
-    .sobre-intro {
-        margin: 2rem auto;
-        padding: 0 1rem;
-    }
-    .sobre-intro p {
-        font-size: 1.05rem;
-        line-height: 1.7;
-        color: #e8e8e8;
-    }
-
-    /* CARDS */
-    .sobre-cards {
-        gap: 1.5rem;
-        margin-top: 2rem;
-    }
-    .sobre-card {
-        padding: 2rem 1.5rem;
-        border-radius: 14px;
-        margin: 0 0.5rem;
-    }
-    .sobre-card i {
-        font-size: 2.2rem;
-        margin-bottom: 0.8rem;
-    }
-    .sobre-card h3 {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-    }
-    .sobre-card p {
-        font-size: 0.95rem;
-        line-height: 1.6;
-    }
+/* ======= GRID DOS CARDS ======= */
+.sobre-cards{
+  display: grid;
+  gap: clamp(14px, 2.2vw, 22px);
+  /* 1 col (mobile), 2 cols (>=640px), 3 cols (>=992px) */
+  grid-template-columns: 1fr;
+  margin: clamp(1rem, 3vw, 2rem) 0 clamp(2rem, 5vw, 3rem);
+}
+@media (min-width: 640px){
+  .sobre-cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 992px){
+  .sobre-cards{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
-/* AJUSTE EXTRA PARA TELAS MUITO PEQUENAS */
-@media (max-width: 480px) {
-    .sobre-hero {
-        padding: 3rem 1rem;
-    }
-    .sobre-hero h2 {
-        font-size: 1.8rem;
-    }
-    .sobre-hero p {
-        font-size: 0.95rem;
-    }
-    .sobre-card {
-        padding: 1.8rem 1.2rem;
-    }
-    .sobre-card p {
-        font-size: 0.9rem;
-    }
+/* ======= CARD ======= */
+.sobre-card{
+  position: relative;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  background: #fff;
+  border-radius: 18px;
+  padding: clamp(1.2rem, 3vw, 2.2rem);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+  transition: transform .22s ease, box-shadow .22s ease;
+  animation: fadeInUp .6s ease both;
+  /* evita textos longos “quebrarem” o layout */
+  overflow-wrap:anywhere;
+  word-break: break-word;
+  hyphens: auto;
+}
+.sobre-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.20);
+}
+
+/* badge numerado opcional (mantém visual organizado; remova se não quiser) */
+.sobre-card::before{
+  counter-increment: sobre-count;
+  content: counter(sobre-count, decimal-leading-zero);
+  position: absolute; top: 12px; left: 12px;
+  font-weight: 800; font-size: .9rem; letter-spacing: .6px;
+  color: #2c5364;
+  background: rgba(44,83,100,.08);
+  border: 1px solid rgba(44,83,100,.22);
+  border-radius: 10px;
+  padding: .22rem .5rem;
+}
+.sobre-cards{ counter-reset: sobre-count; }
+
+.sobre-card i{
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  color: #2c5364;
+  margin-bottom: .65rem;
+}
+.sobre-card h3{
+  color: #203a43;
+  font-weight: 700;
+  font-size: clamp(1.02rem, 2.6vw, 1.35rem);
+  line-height: 1.25;
+  margin-bottom: .5rem;
+}
+.sobre-card p{
+  color: #555;
+  font-size: clamp(.95rem, 2.2vw, 1.05rem);
+  line-height: 1.7;
+  margin: 0;
+  max-width: 58ch; /* largura ideal de leitura */
+}
+
+/* ======= ANIMAÇÕES ======= */
+@keyframes fadeInUp{
+  from{opacity:0; transform: translateY(18px);}
+  to  {opacity:1; transform: translateY(0);}
+}
+@media (prefers-reduced-motion: reduce){
+  .sobre-hero, .sobre-card { animation: none !important; }
+  .sobre-card { transition: none !important; }
 }
 </style>
 
-<!-- HERO -->
-<section class="sobre-hero">
+<div class="sobre-wrap">
+  <!-- HERO -->
+  <section class="sobre-hero" data-reveal>
     <h2>Quem Sou</h2>
     <p>Sou um freelancer apaixonado por tecnologia e design. Desenvolvo sites modernos, com foco em qualidade, usabilidade e resultados.</p>
-</section>
+  </section>
 
-<!-- INTRO -->
-<section class="sobre-intro">
+  <!-- INTRO -->
+  <section class="sobre-intro" data-reveal>
     <p>Acredito que cada projeto deve ser feito sob medida, como uma peça única. Meu objetivo é transformar ideias em experiências digitais que geram impacto positivo e resultados reais para meus clientes.</p>
-</section>
+  </section>
 
-<!-- CARDS -->
-<section>
+  <!-- CARDS -->
+  <section>
     <div class="sobre-cards">
-        <div class="sobre-card">
-            <i class="bi bi-bullseye"></i>
-            <h3>Missão</h3>
-            <p>Entregar soluções digitais criativas, funcionais e personalizadas, ajudando empresas e profissionais a crescer e se destacar online.</p>
-        </div>
-        <div class="sobre-card">
-            <i class="bi bi-lightbulb"></i>
-            <h3>Visão</h3>
-            <p>Ser reconhecido pela qualidade, inovação e compromisso em cada projeto desenvolvido, tornando-se referência em criação digital sob medida.</p>
-        </div>
-        <div class="sobre-card">
-            <i class="bi bi-heart"></i>
-            <h3>Valores</h3>
-            <p>Ética, transparência, inovação e dedicação total ao cliente em todas as etapas do processo de criação.</p>
-        </div>
+      <article class="sobre-card" data-reveal>
+        <i class="bi bi-bullseye" aria-hidden="true"></i>
+        <h3>Missão</h3>
+        <p>Entregar soluções digitais criativas, funcionais e personalizadas, ajudando empresas e profissionais a crescer e se destacar online.</p>
+      </article>
+
+      <article class="sobre-card" data-reveal>
+        <i class="bi bi-lightbulb" aria-hidden="true"></i>
+        <h3>Visão</h3>
+        <p>Ser reconhecido pela qualidade, inovação e compromisso em cada projeto desenvolvido, tornando-se referência em criação digital sob medida.</p>
+      </article>
+
+      <article class="sobre-card" data-reveal>
+        <i class="bi bi-heart" aria-hidden="true"></i>
+        <h3>Valores</h3>
+        <p>Ética, transparência, inovação e dedicação total ao cliente em todas as etapas do processo de criação.</p>
+      </article>
     </div>
-</section>
+  </section>
+</div>
+
+<!-- Scroll reveal aproveitando o padrão (leve) -->
+<script>
+(function(){
+  const els = document.querySelectorAll('[data-reveal]');
+  const on = el => el.classList.add('active');
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting){ on(e.target); io.unobserve(e.target); } });
+    }, {threshold: 0.15});
+    els.forEach(el => io.observe(el));
+  }else{
+    const reveal = () => {
+      const h = window.innerHeight;
+      els.forEach(el => { if(el.getBoundingClientRect().top < h - 50) on(el); });
+    };
+    window.addEventListener('scroll', reveal, {passive:true});
+    window.addEventListener('load', reveal);
+    reveal();
+  }
+})();
+</script>
 
 {% endblock %}

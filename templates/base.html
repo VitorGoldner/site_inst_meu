@@ -80,41 +80,43 @@
     }
     .gallery img:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
 
-    /* ---------- FOOTER (corrigido) ---------- */
-    footer.site-footer {
-      background: transparent;
-      color: #fff;
-      padding: 30px 0;
-      position: relative;
-    }
-    .site-footer .footer-inner{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .5rem;          /* controla o espaço entre ícones e o texto */
-    }
-    .site-footer .social a{
-      color: #fff;
-      display: inline-flex;
-      align-items: center; justify-content: center;
-      width: 40px; height: 40px;
-      font-size: 1.4rem;
-      margin: 0 .25rem;
-      border-radius: 8px;
-      line-height: 1;
-      transition: transform .2s ease, color .2s ease, background-color .2s ease;
-    }
-    .site-footer .social a:hover{
-      color: var(--accent);
-      background: rgba(255,255,255,0.06);
-      transform: translateY(-2px);
-    }
-    .site-footer small{
-      display: block;
-      margin: 0;
-      opacity: .9;
-    }
+    /* ---------- FOOTER (fix: tudo fica dentro da faixa) ---------- */
+footer.site-footer{
+  /* cria uma faixa de fundo escura pro rodapé inteiro */
+  background: linear-gradient(180deg, rgba(12,27,33,.92), rgba(12,27,33,.97));
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 0 30px;
+  position: relative;
+  isolation: isolate;     /* novo contexto, evita “vazar” efeitos de cima */
+  overflow: hidden;       /* impede qualquer transbordo */
+}
+.site-footer .footer-inner{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:.65rem;
+  width:100%; margin:0 auto;
+  padding: 6px 12px 0;    /* 🔧 empurra os ícones alguns px abaixo da borda/topo */
+  min-height: 96px;
+}
+.site-footer .social{
+  display:flex; align-items:center; justify-content:center; flex-wrap:wrap;
+  gap:.6rem; margin:0;    /* sem margem que possa “colar” no topo do footer */
+}
+.site-footer .social a{
+  color:#fff;
+  display:inline-flex; align-items:center; justify-content:center;
+  width:42px; height:42px; font-size:1.35rem; border-radius:10px;
+  line-height:1;
+  /* sem translateY no hover: nada “sobe” pra fora do footer */
+  transition: color .2s ease, background-color .2s ease;
+}
+.site-footer .social a:hover{ color:var(--accent); background:rgba(255,255,255,.06); }
+.site-footer small{ display:block; margin:0; opacity:.9; text-align:center; }
+
+/* mobile — só mais respiro no bottom (safe area) e ícones 44px */
+@media (max-width: 991.98px){
+  footer.site-footer{ padding-bottom: calc(34px + env(safe-area-inset-bottom, 0px)); }
+  .site-footer .social a{ width:44px; height:44px; font-size:1.4rem; }
+}
 
     /* ---------- Mobile Styles ---------- */
     @media (max-width: 991.98px) {
@@ -140,7 +142,7 @@
         backdrop-filter: blur(2px);
         opacity: 0; visibility: hidden;
         transition: opacity .2s ease;
-        z-index: 1100; /* abaixo da navbar (1200) porém acima do conteúdo */
+        z-index: 1100;
       }
       .menu-backdrop.show { opacity: 1; visibility: visible; }
 
@@ -158,6 +160,12 @@
       }
 
       .site-wrapper { padding-top: 90px; }
+
+      /* Footer: safe-area e ícones um pouco maiores */
+      footer.site-footer{
+        padding-bottom: calc(34px + env(safe-area-inset-bottom, 0px));
+      }
+      .site-footer .social a{ width: 44px; height: 44px; font-size: 1.4rem; }
     }
   </style>
 </head>
@@ -194,12 +202,16 @@
     {% block content %}{% endblock %}
   </div>
 
-  <!-- Footer (corrigido) -->
-  <footer class="site-footer">
+  <!-- Footer -->
+  <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner text-center">
-      <div class="social">
-        <a href="https://github.com/VitorGoldner" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
-        <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      <div class="social" aria-label="Redes sociais">
+        <a href="https://github.com/VitorGoldner" target="_blank" rel="noopener" aria-label="GitHub">
+          <i class="bi bi-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <i class="bi bi-linkedin"></i>
+        </a>
       </div>
       <small>&copy; {{ 2025 }} MedidaWeb. Todos os direitos reservados.</small>
     </div>

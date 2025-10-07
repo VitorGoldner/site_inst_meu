@@ -42,9 +42,7 @@
       border-bottom: 1px solid var(--nav-border);
       box-shadow: 0 4px 20px rgba(0,0,0,0.10);
     }
-    .site-navbar .navbar-brand {
-      font-weight: 800; color: #fff; letter-spacing: .5px;
-    }
+    .site-navbar .navbar-brand { font-weight: 800; color: #fff; letter-spacing: .5px; }
     .site-navbar .nav-link {
       color: rgba(255,255,255,0.88);
       font-weight: 600;
@@ -52,25 +50,16 @@
       border-bottom: 2px solid transparent;
     }
     .site-navbar .nav-link:hover,
-    .site-navbar .nav-link.active {
-      color: #fff;
-      border-bottom-color: var(--accent);
-    }
+    .site-navbar .nav-link.active { color: #fff; border-bottom-color: var(--accent); }
 
     /* Toggler maior e clicável */
-    .navbar-toggler {
-      border: none;
-      outline: none !important;
-      padding: .35rem .55rem;
-      font-size: 1.6rem;
-      color: #fff;
-    }
+    .navbar-toggler { border: none; outline: none !important; padding: .35rem .55rem; font-size: 1.6rem; color: #fff; }
     .navbar-toggler:focus { box-shadow: none; }
 
-    /* Wrapper principal (evita que o fixed-navbar cubra conteúdo) */
+    /* Wrapper principal */
     .site-wrapper { padding-top: 80px; }
 
-    /* HERO (mantido) */
+    /* HERO base (mantida) */
     .hero-section {
       width: 100%;
       min-height: 100vh;
@@ -83,7 +72,7 @@
     .hero-content h1 { font-size: 3.5rem; font-weight: 800; text-shadow: 2px 2px 10px rgba(0,0,0,0.6); }
     .hero-content p  { font-size: 1.2rem; }
 
-    /* Galeria (mantido) */
+    /* Galeria (mantida) */
     .gallery { padding: 60px 20px; }
     .gallery img {
       border-radius: 12px; width: 100%; height: 300px; object-fit: cover;
@@ -91,14 +80,44 @@
     }
     .gallery img:hover { transform: scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.25); }
 
-    /* Footer (mantido) */
-    footer.site-footer { background: transparent; color: #fff; padding: 30px 0; }
-    .site-footer a { color: #fff; margin: 0 10px; font-size: 1.5rem; transition: color .3s ease; }
-    .site-footer a:hover { color: var(--accent); }
+    /* ---------- FOOTER (corrigido) ---------- */
+    footer.site-footer {
+      background: transparent;
+      color: #fff;
+      padding: 30px 0;
+      position: relative;
+    }
+    .site-footer .footer-inner{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;          /* controla o espaço entre ícones e o texto */
+    }
+    .site-footer .social a{
+      color: #fff;
+      display: inline-flex;
+      align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      font-size: 1.4rem;
+      margin: 0 .25rem;
+      border-radius: 8px;
+      line-height: 1;
+      transition: transform .2s ease, color .2s ease, background-color .2s ease;
+    }
+    .site-footer .social a:hover{
+      color: var(--accent);
+      background: rgba(255,255,255,0.06);
+      transform: translateY(-2px);
+    }
+    .site-footer small{
+      display: block;
+      margin: 0;
+      opacity: .9;
+    }
 
     /* ---------- Mobile Styles ---------- */
     @media (max-width: 991.98px) {
-      /* Colapsado com cara de "offcanvas", mas usando collapse padrão */
       .site-navbar .navbar-collapse {
         background: var(--nav-bg-mobile);
         border: 1px solid var(--nav-border);
@@ -112,9 +131,7 @@
         margin: .15rem 0;
         line-height: 1.2;
       }
-      .site-navbar .navbar-nav .nav-link:active {
-        background: rgba(255,255,255,0.06);
-      }
+      .site-navbar .navbar-nav .nav-link:active { background: rgba(255,255,255,0.06); }
 
       /* backdrop ao abrir menu */
       .menu-backdrop {
@@ -132,10 +149,9 @@
       .hero-content p  { font-size: 1rem; }
       .gallery img { height: 220px; }
 
-      /* refinamento do hero p/ imagens altas */
       .hero-section {
         min-height: 110dvh;
-        background-size: cover;    /* prioriza preencher */
+        background-size: cover;
         background-position: center 35%;
         background-color: #0f2027;
         background-repeat: no-repeat;
@@ -178,13 +194,15 @@
     {% block content %}{% endblock %}
   </div>
 
-  <!-- Footer -->
-  <footer class="site-footer text-center">
-    <div class="mb-3">
-      <a href="https://github.com/VitorGoldner" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
-      <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+  <!-- Footer (corrigido) -->
+  <footer class="site-footer">
+    <div class="container footer-inner text-center">
+      <div class="social">
+        <a href="https://github.com/VitorGoldner" target="_blank" rel="noopener" aria-label="GitHub"><i class="bi bi-github"></i></a>
+        <a href="https://www.linkedin.com/in/vitorgoldner" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <small>&copy; {{ 2025 }} MedidaWeb. Todos os direitos reservados.</small>
     </div>
-    <small>&copy; {{ 2025 }} MedidaWeb. Todos os direitos reservados.</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -204,7 +222,6 @@
       };
       const hideBackdrop = () => {
         back.classList.remove('show');
-        // espera a transição para esconder de vez
         setTimeout(() => { back.hidden = true; }, 150);
         document.body.classList.remove('menu-open');
       };
@@ -212,20 +229,16 @@
       menu.addEventListener('shown.bs.collapse', showBackdrop);
       menu.addEventListener('hidden.bs.collapse', hideBackdrop);
 
-      // Fecha ao clicar fora do menu (somente no mobile)
       back.addEventListener('click', () => {
         const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menu);
         bsCollapse.hide();
       });
 
-      // Fecha ao clicar em qualquer link do menu
       links.forEach(a => a.addEventListener('click', () => {
         const bsCollapse = bootstrap.Collapse.getOrCreateInstance(menu);
         bsCollapse.hide();
       }));
 
-      // Evita que o conteúdo "salte" quando a barra fixa aparece
-      // (caso mude a altura no futuro)
       const adjustWrapperPadding = () => {
         const wrapper = document.querySelector('.site-wrapper');
         if (!wrapper || !nav) return;

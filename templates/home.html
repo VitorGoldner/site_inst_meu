@@ -37,14 +37,12 @@
 .benefit-card{
   background:#fff; border-radius:16px; padding:clamp(18px,3vw,30px);
   box-shadow:var(--ff-card-shadow); transition:transform .25s, box-shadow .25s; height:100%;
-  /* garante boa quebra em nomes/termos longos no mobile */
   overflow-wrap:anywhere; word-break:break-word; hyphens:auto;
 }
 .benefit-card:hover{ transform:translateY(-6px); box-shadow:var(--ff-card-shadow-hover); }
 .benefit-card i{
   font-size:clamp(1.5rem,4.6vw,2.2rem); color:var(--accent); margin-bottom:10px; animation:pulse 2s infinite;
 }
-/* Tipografia FLUIDA e segura (sem vazar) */
 .benefit-card h5{
   font-weight:700;
   font-size: clamp(0.98rem, 3.2vw, 1.1rem);
@@ -57,7 +55,7 @@
   line-height: 1.4;
   margin: 0;
   opacity: .95;
-  text-wrap: pretty; /* navegadores modernos */
+  text-wrap: pretty;
 }
 
 /* ================== Galeria ================== */
@@ -86,22 +84,12 @@
 /* =================== Vídeo =================== */
 .video-section{ margin-top:clamp(48px,8vw,96px); margin-bottom:clamp(48px,8vw,90px); text-align:center; color:#fff; }
 .video-section h2{ letter-spacing:.2px; }
-
-/* ✅ Ajuste aplicado: fundo e borda pretos ao redor do vídeo */
 .video-wrap{
   position:relative; padding-bottom:50%; height:0; overflow:hidden;
   max-width:1150px; margin:0 auto;
-  background:#000;                 /* fundo preto (elimina “borda branca”) */
-  border-radius:12px;              /* cantos suaves */
-  box-shadow:0 10px 35px rgba(0,0,0,.2);
+  border-radius:12px; box-shadow:0 10px 35px rgba(0,0,0,.2);
 }
-.video-wrap iframe{
-  position:absolute; inset:0; width:100%; height:100%;
-  border:0;
-  border-radius:10px;              /* levemente menor que o container para não vazar */
-  display:block;
-  background:#000;                 /* garante preto mesmo antes do load */
-}
+.video-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:10px; background:#000; }
 
 /* =========== Botões Flutuantes =========== */
 .floating-buttons{ position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:12px; z-index:999; }
@@ -126,20 +114,31 @@
 /* =============== Mobile tuning =============== */
 @media (max-width: 768px){
   .hero-overlay{ background: var(--ff-overlay-mobile); }
+
+  /* 🔧 HERO (mobile): muda o ponto focal para cima para mostrar mais a folha/medida */
+  .hero-section{
+    /* mantém escala por altura, sem “zoom” exagerado */
+    background-size: auto 100% !important;
+    /* move o recorte para a parte superior da imagem (ajuste fino alterando 10–25%) */
+    background-position: 50% 18% !important;
+  }
+
   .hero-buttons a{ display:block; width:100%; max-width:420px; margin:10px auto; font-size:1rem; }
-  .hero-section{ background-position:center 32%; }
+  .hero-section{ background-position: 50% 18%; }
   .gallery{ padding-left:10px; padding-right:10px; }
 
-  /* BENEFÍCIOS (mobile): respiro e escala dos ícones/textos */
+  /* BENEFÍCIOS (mobile) */
   .benefit-card{ padding:14px 12px; }
   .benefit-card i{ font-size: 1.6rem; }
   .benefit-card h5{ font-size: 1rem; }
   .benefit-card p{ font-size: .95rem; }
 
-  /* borda mais sutil no vídeo no mobile */
+  /* vídeo: borda mais sutil */
   .video-wrap{ border-width:1px; }
 }
 @media (max-width: 420px){
+  /* em telas muito pequenas, sobe um pouco mais o foco */
+  .hero-section{ background-position: 50% 14% !important; }
   .floating-buttons a{ width:50px; height:50px; font-size:24px; }
 }
 

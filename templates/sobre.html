@@ -3,148 +3,198 @@
 {% block content %}
 
 <style>
-/* ======= RESET FINO PARA EVITAR ESTOURO ======= */
-* { box-sizing: border-box; }
+
 .sobre-wrap {
-  width: 100%;
-  max-width: 1200px;       /* evita passar da tela no desktop grande */
-  margin: 0 auto;
-  padding-inline: clamp(12px, 3vw, 24px);
+  position:relative; width:min(100% - 2rem, 1180px); margin:0 auto;
+  padding:clamp(1rem,3vw,2rem) 0 1rem;
+}
+.sobre-hero {
+  position:relative; isolation:isolate; overflow:hidden;
+  padding:clamp(2.7rem,7vw,6.3rem) clamp(1.3rem,5vw,4.5rem);
+  margin:clamp(1rem,3vw,2rem) 0 clamp(2.2rem,5vw,4rem);
+  text-align:left; color:#fff; border:1px solid rgba(169,225,237,.18); border-radius:30px;
+  background:linear-gradient(115deg,rgba(7,24,33,.97) 0%,rgba(13,54,68,.93) 58%,rgba(14,78,66,.82) 100%);
+  box-shadow:0 35px 90px rgba(0,0,0,.27);
+}
+.sobre-hero::before {
+  content:""; position:absolute; z-index:-1; top:-45%; right:-7%; width:min(50vw,520px); aspect-ratio:1;
+  border:1px solid rgba(54,229,139,.24); border-radius:50%;
+  box-shadow:0 0 0 34px rgba(54,229,139,.035),0 0 0 75px rgba(54,229,139,.025),0 0 0 120px rgba(54,229,139,.018);
+}
+.sobre-hero::after {
+  content:"SOBRE A MEDIDAWEB"; display:inline-flex; margin-bottom:1.25rem;
+  padding:.5rem .8rem; border:1px solid rgba(54,229,139,.3); border-radius:999px;
+  color:#aaffd0; background:rgba(54,229,139,.075); font-size:.65rem; font-weight:800; letter-spacing:.18em;
+}
+.sobre-hero h2 { max-width:13ch; margin:0 0 1.15rem; font-size:clamp(2.8rem,6vw,5rem); font-weight:800; line-height:.98; letter-spacing:-.075em; }
+.sobre-hero p { max-width:62ch; margin:0; color:rgba(238,249,252,.78); font-size:clamp(1.03rem,1.7vw,1.2rem); line-height:1.85; }
+.sobre-intro {
+  position:relative; max-width:850px; margin:0 auto clamp(2.5rem,6vw,5rem);
+  padding:0 clamp(.5rem,3vw,2rem); text-align:center;
+}
+.sobre-intro::before {
+  content:"“"; display:block; height:3.2rem; color:#51efa0; font-family:Georgia,serif;
+  font-size:5.3rem; line-height:1; opacity:.8;
+}
+.sobre-intro p { margin:0; color:#d0e0e7; font-size:clamp(1.05rem,2vw,1.3rem); line-height:1.9; font-weight:400; }
+.sobre-cards {
+  display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:clamp(1rem,2.3vw,1.5rem);
+  margin:0 0 clamp(3rem,7vw,5rem); counter-reset:sobre-count;
+}
+.sobre-card {
+  position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; text-align:left;
+  min-height:300px; padding:clamp(1.5rem,3vw,2.2rem);
+  border:1px solid rgba(175,222,235,.15); border-radius:24px;
+  background:linear-gradient(150deg,rgba(16,48,62,.9),rgba(8,30,41,.96));
+  box-shadow:0 18px 45px rgba(0,0,0,.15);
+  transition:transform .35s cubic-bezier(.2,.75,.25,1), border-color .3s ease, box-shadow .35s ease, background .3s ease;
+}
+.sobre-card::before {
+  counter-increment:sobre-count; content:"0" counter(sobre-count);
+  position:absolute; top:1.35rem; right:1.45rem;
+  color:rgba(202,232,240,.35); font-size:.78rem; font-weight:800; letter-spacing:.12em;
+}
+.sobre-card::after {
+  content:""; position:absolute; z-index:-1; right:-45px; bottom:-75px; width:170px; height:170px;
+  border-radius:50%; background:rgba(54,229,139,.07); filter:blur(1px);
+  transition:transform .4s ease, background .4s ease;
+}
+.sobre-card:hover { transform:translateY(-9px); border-color:rgba(54,229,139,.43); box-shadow:0 30px 65px rgba(0,0,0,.28); background:linear-gradient(150deg,rgba(18,60,72,.98),rgba(8,30,41,.98)); }
+.sobre-card:hover::after { transform:scale(1.35); background:rgba(54,229,139,.12); }
+.sobre-card i {
+  display:grid; place-items:center; width:58px; height:58px; margin:0 0 1.7rem;
+  border:1px solid rgba(54,229,139,.25); border-radius:18px; color:#54f0a5;
+  background:linear-gradient(145deg,rgba(54,229,139,.14),rgba(54,229,139,.035));
+  font-size:1.75rem; transition:transform .3s ease, background .3s ease;
+}
+.sobre-card:hover i { transform:translateY(-3px) rotate(-4deg); background:rgba(54,229,139,.18); }
+.sobre-card h3 { margin:0 0 .8rem; color:#fff; font-size:1.45rem; font-weight:800; letter-spacing:-.045em; }
+.sobre-card p { max-width:36ch; margin:0; color:#afc4ce; font-size:.94rem; line-height:1.8; overflow-wrap:anywhere; hyphens:auto; }
+@media (max-width: 991.98px) {
+  .sobre-cards { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .sobre-card:last-child { grid-column:1 / -1; min-height:250px; }
+}
+@media (max-width: 639.98px) {
+  .sobre-wrap { width:min(100% - 1.2rem, 1180px); padding-top:.5rem; }
+  .sobre-hero { padding:2.6rem 1.4rem; margin:1rem 0 2.3rem; border-radius:22px; }
+  .sobre-hero::before { width:90vw; right:-35%; top:-18%; }
+  .sobre-hero h2 { font-size:clamp(2.65rem,13vw,3.8rem); }
+  .sobre-hero p { font-size:1rem; line-height:1.75; }
+  .sobre-intro { margin-bottom:2.5rem; padding:0 .35rem; }
+  .sobre-intro p { font-size:1rem; line-height:1.8; }
+  .sobre-cards { grid-template-columns:1fr; gap:.9rem; }
+  .sobre-card, .sobre-card:last-child { grid-column:auto; min-height:0; padding:1.5rem; border-radius:20px; }
+  .sobre-card i { width:51px; height:51px; margin-bottom:1.2rem; border-radius:15px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sobre-card, .sobre-card i { transition:none !important; }
 }
 
-/* ======= HERO ======= */
-.sobre-hero{
-  --g1: rgba(15,32,39,0.92);
-  --g2: rgba(32,58,67,0.92);
-  --g3: rgba(44,83,100,0.92);
-  background: linear-gradient(135deg, var(--g1), var(--g2), var(--g3));
-  color:#fff;
-  border-radius: 18px;
-  padding: clamp(2rem, 4.5vw, 4.5rem) clamp(1rem, 3vw, 2rem);
-  text-align:center;
-  margin: clamp(1rem, 3.5vw, 2.5rem) 0;
-  box-shadow: 0 10px 28px rgba(0,0,0,.22);
-  animation: fadeInUp .7s ease both;
+
+/* === Movimento refinado da página Sobre === */
+.sobre-hero::before { animation: sobreOrbit 20s ease-in-out infinite alternate; }
+.sobre-hero::after { animation: sobreBadgeIn .7s .1s both cubic-bezier(.2,.75,.25,1); }
+.sobre-hero h2 { animation: sobreTextIn .85s .18s both cubic-bezier(.2,.75,.25,1); }
+.sobre-hero p { animation: sobreTextIn .85s .32s both cubic-bezier(.2,.75,.25,1); }
+.sobre-intro::before { animation: quoteFloat 4.5s ease-in-out infinite; }
+.sobre-card { transform-style: preserve-3d; }
+.sobre-card:nth-child(2) { transition-delay: .05s; }
+.sobre-card:nth-child(3) { transition-delay: .1s; }
+.sobre-card:hover { transform: translateY(-9px) perspective(900px) rotateX(1deg); }
+.sobre-card i { box-shadow: 0 0 0 0 rgba(54,229,139,0); }
+.sobre-card:hover i { box-shadow: 0 0 0 7px rgba(54,229,139,.045), 0 12px 28px rgba(54,229,139,.08); }
+@keyframes sobreOrbit {
+  from { transform: translate3d(0,0,0) rotate(-4deg); }
+  to { transform: translate3d(-20px,16px,0) rotate(7deg); }
 }
-.sobre-hero h2{
-  font-weight:800;
-  font-size: clamp(1.6rem, 4.3vw, 2.6rem);
-  margin-bottom:.7rem;
-  letter-spacing:.4px;
-  line-height:1.1;
+@keyframes sobreBadgeIn {
+  from { opacity:0; transform:translateY(10px); }
+  to { opacity:1; transform:translateY(0); }
 }
-.sobre-hero p{
-  font-size: clamp(0.98rem, 2.2vw, 1.18rem);
-  max-width: 880px;
-  margin: 0 auto;
-  color: rgba(255,255,255,0.95);
-  line-height: 1.75;
+@keyframes sobreTextIn {
+  from { opacity:0; transform:translateY(20px); filter:blur(4px); }
+  to { opacity:1; transform:translateY(0); filter:blur(0); }
+}
+@keyframes quoteFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-5px); }
+}
+@media (max-width: 639.98px) {
+  .sobre-card:nth-child(2), .sobre-card:nth-child(3) { transition-delay: 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sobre-hero::before, .sobre-hero::after, .sobre-hero h2, .sobre-hero p,
+  .sobre-intro::before { animation:none !important; }
 }
 
-/* ======= INTRO ======= */
-.sobre-intro{
-  text-align:center;
-  margin: clamp(1.2rem, 3.5vw, 2.5rem) auto;
-  max-width: 980px;
+
+/* === LIVING UI: movimento contínuo da página Sobre === */
+.sobre-hero {
+  background-size: 220% 220%;
+  animation: aboutGradientDrift 22s ease-in-out infinite alternate;
 }
-.sobre-intro p{
-  font-size: clamp(1rem, 2.3vw, 1.22rem);
-  color: #f1f1f1;
-  line-height: 1.85;
-  font-weight: 400;
-  margin: 0;
+.sobre-hero::before {
+  animation: sobreOrbit 20s ease-in-out infinite alternate, aboutRingPulse 8s ease-in-out infinite;
+}
+.sobre-hero::after {
+  box-shadow:0 0 0 0 rgba(54,229,139,.1);
+  animation: sobreBadgeIn .7s .1s both cubic-bezier(.2,.75,.25,1), aboutLabelPulse 4.5s ease-in-out infinite 1s;
+}
+.sobre-intro::before {
+  text-shadow:0 0 24px rgba(54,229,139,.18);
+  animation: quoteFloat 4.5s ease-in-out infinite, quoteGlow 6s ease-in-out infinite;
+}
+.sobre-card::after { animation: aboutCardAura 10s ease-in-out infinite alternate; }
+.sobre-card:nth-child(2)::after { animation-delay:-3s; }
+.sobre-card:nth-child(3)::after { animation-delay:-6s; }
+.sobre-card i { animation: aboutIconFloat 5.2s ease-in-out infinite; }
+.sobre-card:nth-child(2) i { animation-delay:-1.7s; }
+.sobre-card:nth-child(3) i { animation-delay:-3.4s; }
+@keyframes aboutGradientDrift {
+  0% { background-position:0% 45%; }
+  100% { background-position:100% 55%; }
+}
+@keyframes aboutRingPulse {
+  0%,100% { opacity:.6; }
+  50% { opacity:1; }
+}
+@keyframes aboutLabelPulse {
+  0%,100% { box-shadow:0 0 0 0 rgba(54,229,139,.05); }
+  50% { box-shadow:0 0 0 5px rgba(54,229,139,.035); }
+}
+@keyframes quoteGlow {
+  0%,100% { text-shadow:0 0 14px rgba(54,229,139,.1); }
+  50% { text-shadow:0 0 30px rgba(54,229,139,.32); }
+}
+@keyframes aboutCardAura {
+  from { transform:translate3d(0,0,0) scale(.9); opacity:.55; }
+  to { transform:translate3d(-16px,-10px,0) scale(1.18); opacity:1; }
+}
+@keyframes aboutIconFloat {
+  0%,100% { transform:translateY(0); }
+  50% { transform:translateY(-4px); }
+}
+@media (max-width:639.98px) {
+  .sobre-hero { animation-duration:28s; }
+  .sobre-card i { animation-duration:6s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sobre-hero, .sobre-hero::before, .sobre-hero::after,
+  .sobre-intro::before, .sobre-card::after, .sobre-card i { animation:none !important; }
 }
 
-/* ======= GRID DOS CARDS ======= */
-.sobre-cards{
-  display: grid;
-  gap: clamp(14px, 2.2vw, 22px);
-  /* 1 col (mobile), 2 cols (>=640px), 3 cols (>=992px) */
-  grid-template-columns: 1fr;
-  margin: clamp(1rem, 3vw, 2rem) 0 clamp(2rem, 5vw, 3rem);
-}
-@media (min-width: 640px){
-  .sobre-cards{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (min-width: 992px){
-  .sobre-cards{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-}
-
-/* ======= CARD ======= */
-.sobre-card{
-  position: relative;
-  display: flex; flex-direction: column; align-items: center; text-align: center;
-  background: #fff;
-  border-radius: 18px;
-  padding: clamp(1.2rem, 3vw, 2.2rem);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
-  transition: transform .22s ease, box-shadow .22s ease;
-  animation: fadeInUp .6s ease both;
-  /* evita textos longos “quebrarem” o layout */
-  overflow-wrap:anywhere;
-  word-break: break-word;
-  hyphens: auto;
-}
-.sobre-card:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.20);
-}
-
-/* badge numerado opcional (mantém visual organizado; remova se não quiser) */
-.sobre-card::before{
-  counter-increment: sobre-count;
-  content: counter(sobre-count, decimal-leading-zero);
-  position: absolute; top: 12px; left: 12px;
-  font-weight: 800; font-size: .9rem; letter-spacing: .6px;
-  color: #2c5364;
-  background: rgba(44,83,100,.08);
-  border: 1px solid rgba(44,83,100,.22);
-  border-radius: 10px;
-  padding: .22rem .5rem;
-}
-.sobre-cards{ counter-reset: sobre-count; }
-
-.sobre-card i{
-  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
-  color: #2c5364;
-  margin-bottom: .65rem;
-}
-.sobre-card h3{
-  color: #203a43;
-  font-weight: 700;
-  font-size: clamp(1.02rem, 2.6vw, 1.35rem);
-  line-height: 1.25;
-  margin-bottom: .5rem;
-}
-.sobre-card p{
-  color: #555;
-  font-size: clamp(.95rem, 2.2vw, 1.05rem);
-  line-height: 1.7;
-  margin: 0;
-  max-width: 58ch; /* largura ideal de leitura */
-}
-
-/* ======= ANIMAÇÕES ======= */
-@keyframes fadeInUp{
-  from{opacity:0; transform: translateY(18px);}
-  to  {opacity:1; transform: translateY(0);}
-}
-@media (prefers-reduced-motion: reduce){
-  .sobre-hero, .sobre-card { animation: none !important; }
-  .sobre-card { transition: none !important; }
-}
 </style>
 
 <div class="sobre-wrap">
   <!-- HERO -->
   <section class="sobre-hero" data-reveal>
-    <h2>Quem Sou</h2>
-    <p>Sou um freelancer apaixonado por tecnologia e design. Desenvolvo sites modernos, com foco em qualidade, usabilidade e resultados.</p>
+    <h2>Quem Somos</h2>
+    <p>A MedidaWeb cria páginas digitais modernas para empresas e profissionais que desejam apresentar seus serviços com clareza, credibilidade e qualidade. Desenvolvemos landing pages e sites institucionais responsivos, com foco em usabilidade, comunicação e uma presença digital profissional.</p>
   </section>
 
   <!-- INTRO -->
   <section class="sobre-intro" data-reveal>
-    <p>Acredito que cada projeto deve ser feito sob medida, como uma peça única. Meu objetivo é transformar ideias em experiências digitais que geram impacto positivo e resultados reais para meus clientes.</p>
+    <p>Acreditamos que cada negócio tem uma história e objetivos próprios. Por isso, desenvolvemos cada projeto para comunicar o valor da marca, destacar seus serviços e orientar visitantes para os canais certos, como WhatsApp, redes sociais e páginas externas. Nosso compromisso é oferecer uma experiência digital clara, funcional e alinhada às necessidades de cada cliente.</p>
   </section>
 
   <!-- CARDS -->
@@ -153,19 +203,19 @@
       <article class="sobre-card" data-reveal>
         <i class="bi bi-bullseye" aria-hidden="true"></i>
         <h3>Missão</h3>
-        <p>Entregar soluções digitais criativas, funcionais e personalizadas, ajudando empresas e profissionais a crescer e se destacar online.</p>
+        <p>Criar landing pages e sites institucionais responsivos que apresentem empresas, serviços e marcas de forma clara, profissional e acessível.</p>
       </article>
 
       <article class="sobre-card" data-reveal>
         <i class="bi bi-lightbulb" aria-hidden="true"></i>
         <h3>Visão</h3>
-        <p>Ser reconhecido pela qualidade, inovação e compromisso em cada projeto desenvolvido, tornando-se referência em criação digital sob medida.</p>
+        <p>Consolidar a MedidaWeb como uma parceira confiável para negócios que buscam fortalecer sua presença online por meio de sites apresentativos bem planejados e desenvolvidos com cuidado.</p>
       </article>
 
       <article class="sobre-card" data-reveal>
         <i class="bi bi-heart" aria-hidden="true"></i>
         <h3>Valores</h3>
-        <p>Ética, transparência, inovação e dedicação total ao cliente em todas as etapas do processo de criação.</p>
+        <p>Transparência na comunicação, atenção aos detalhes, compromisso com a qualidade, respeito às necessidades de cada cliente e melhoria contínua em cada etapa do projeto.</p>
       </article>
     </div>
   </section>
@@ -175,6 +225,7 @@
 <script>
 (function(){
   const els = document.querySelectorAll('[data-reveal]');
+  document.documentElement.classList.add('motion-ready');
   const on = el => el.classList.add('active');
   if('IntersectionObserver' in window){
     const io = new IntersectionObserver((entries) => {

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
-{% block title %}MedidaWeb{% endblock %}
+{% block title %}MedidaWeb | Soluções digitais para empresas{% endblock %}
 {% block content %}
+<div data-mw-system="editorial" class="mw-page-editorial">
 
 <style>
 :root{
@@ -146,17 +147,267 @@
 @media (prefers-reduced-motion: reduce){
   * { animation: none !important; transition: none !important; }
 }
+
+
+/* ===== Refinamento tipográfico e acabamento da página inicial ===== */
+.hero-section { isolation: isolate; }
+.hero-overlay { background: linear-gradient(115deg, rgba(8,20,25,.72), rgba(15,32,39,.38)); }
+.hero-content { max-width: 880px; }
+.hero-content h1 {
+  max-width: 18ch; margin: 0 auto 1rem; font-size: clamp(2.15rem, 5.2vw, 4.15rem);
+  line-height: 1.08; letter-spacing: -.045em; text-wrap: balance;
+  text-shadow: 0 5px 24px rgba(0,0,0,.4);
+}
+.hero-content p { max-width: 58ch; margin: 0 auto 1.65rem; color: rgba(255,255,255,.9); line-height: 1.75; }
+.hero-buttons { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: .8rem; }
+.hero-buttons a { margin: 0; font-weight: 700; letter-spacing: .005em; border-radius: 12px; }
+.hero-buttons .btn-success { background: #22c55e; border-color: #22c55e; box-shadow: 0 8px 22px rgba(34,197,94,.2); }
+.hero-buttons .btn-success:hover { background: #16a34a; border-color: #16a34a; }
+.benefit-card { border: 1px solid rgba(32,58,67,.07); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
+.benefit-card i { display: inline-block; }
+.benefit-card h5 { color: #203a43; letter-spacing: -.02em; }
+.benefit-card p { color: #59636a; }
+.gallery { border: 1px solid rgba(255,255,255,.32); box-shadow: 0 18px 44px rgba(0,0,0,.12); }
+.gallery h2, .video-section h2 { font-size: clamp(1.65rem, 3.5vw, 2.45rem); font-weight: 800; letter-spacing: -.035em; }
+.gallery-card { box-shadow: 0 8px 22px rgba(15,32,39,.12); }
+.gallery-card:focus-visible { outline: 3px solid #22c55e; outline-offset: 4px; }
+.gallery-card .overlay { padding: .9rem 1rem; font-weight: 700; letter-spacing: .015em; background: linear-gradient(to top, rgba(8,20,25,.8), rgba(8,20,25,0)); }
+.video-wrap { border: 1px solid rgba(255,255,255,.15); border-radius: 16px; box-shadow: 0 18px 44px rgba(0,0,0,.25); }
+.floating-buttons a { box-shadow: 0 8px 22px rgba(0,0,0,.28); }
+.floating-buttons a:focus-visible { outline-color: #fff; }
+@media (max-width: 768px) {
+  .hero-content h1 { max-width: 15ch; font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-content p { max-width: 42ch; }
+  .hero-buttons { display: block; }
+  .hero-buttons a { margin: .65rem auto; }
+  .gallery { border-radius: 14px; }
+}
+
+
+/* ================== Planos ================== */
+.pricing-section { padding: clamp(42px, 7vw, 82px) 0; color: #24333a; }
+.pricing-intro { max-width: 760px; margin: 0 auto 2.3rem; text-align: center; padding: 0 1rem; }
+.pricing-intro h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); font-weight: 800; letter-spacing: -.04em; }
+.pricing-intro p { color: #66737a; line-height: 1.75; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.15rem; align-items: stretch; }
+.pricing-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #e4e9eb; border-radius: 18px; padding: clamp(1.2rem,2.4vw,1.8rem); box-shadow: 0 8px 24px rgba(15,32,39,.07); transition: transform .25s ease, box-shadow .25s ease; }
+.pricing-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(15,32,39,.13); }
+.pricing-card.featured { border: 2px solid #22c55e; }
+.pricing-tag { display: inline-block; align-self: flex-start; margin-bottom: .8rem; padding: .35rem .65rem; border-radius: 999px; background: #e9f9ef; color: #16803d; font-size: .75rem; font-weight: 800; }
+.pricing-card h3 { font-size: 1.25rem; font-weight: 800; }
+.pricing-price { margin: .7rem 0 1rem; color: #173b2a; font-size: clamp(2rem,4vw,2.65rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+.pricing-price small { font-size: .88rem; font-weight: 600; letter-spacing: 0; color: #68757b; }
+.pricing-card p { color: #657078; line-height: 1.6; }
+.pricing-features { list-style: none; padding: 0; margin: .4rem 0 1.5rem; flex: 1; }
+.pricing-features li { padding: .55rem 0; border-bottom: 1px solid #eef1f2; color: #34434a; font-size: .94rem; }
+.pricing-features li i { color: #16a34a; margin-right: .45rem; }
+.pricing-card .btn { width: 100%; border-radius: 10px; font-weight: 700; padding: .8rem 1rem; }
+.pricing-note { margin: 1.3rem auto 0; max-width: 850px; text-align: center; font-size: .88rem; color: #6b777d; line-height: 1.65; }
+.one-time-wrap { max-width: 760px; margin: 1.5rem auto 0; padding: 1.25rem 1.4rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-radius: 16px; background: #edf2f3; border: 1px solid #dce5e7; }
+.one-time-wrap h3 { margin: 0 0 .25rem; font-size: 1.1rem; font-weight: 800; }
+.one-time-wrap p { margin: 0; color: #59686e; font-size: .92rem; }
+.one-time-price { white-space: nowrap; font-size: 1.65rem; font-weight: 800; color: #173b2a; }
+@media(max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
+@media(max-width: 560px) { .one-time-wrap { align-items: flex-start; flex-direction: column; } }
+
+
+
+/* ===== Ajustes visuais: chamadas, planos e vídeo ===== */
+.hero-buttons a {
+  min-height: 54px; display: inline-flex; align-items: center; justify-content: center;
+  gap: .5rem; padding: .95rem 1.55rem; border-radius: 999px;
+  font-size: 1rem; font-weight: 800; letter-spacing: .01em;
+  text-decoration: none; box-shadow: 0 10px 26px rgba(0,0,0,.2);
+  transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+.hero-buttons .btn-success { color: #10251a; background: #7cf0a5; border: 1px solid #7cf0a5; }
+.hero-buttons .btn-success:hover { color: #10251a; background: #a0f7bd; border-color: #a0f7bd; box-shadow: 0 14px 30px rgba(34,197,94,.28); }
+.hero-buttons .btn-outline-light { color: #fff; background: rgba(12,25,30,.28); border: 1px solid rgba(255,255,255,.82); backdrop-filter: blur(8px); }
+.hero-buttons .btn-outline-light:hover { color: #172a22; background: #fff; border-color: #fff; }
+.hero-buttons a:focus-visible, .pricing-card .btn:focus-visible, .one-time-wrap .btn:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
+
+.pricing-section { color: #172b32; }
+.pricing-intro { max-width: 790px; margin-bottom: 2.7rem; }
+.pricing-intro h2 { color: #172b32; line-height: 1.13; text-wrap: balance; }
+.pricing-intro p { max-width: 68ch; margin: 1rem auto 0; color: #43545b; font-size: 1.06rem; line-height: 1.8; }
+.pricing-grid { gap: 1.35rem; }
+.pricing-card { padding: clamp(1.35rem, 2.5vw, 1.9rem); border: 1px solid #dce5e8; border-radius: 22px; box-shadow: 0 12px 32px rgba(20,45,52,.08); }
+.pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 42px rgba(20,45,52,.14); }
+.pricing-card.featured { border: 2px solid #1da957; box-shadow: 0 16px 38px rgba(29,169,87,.14); background: linear-gradient(180deg, #fbfffc 0%, #fff 35%); }
+.pricing-tag { padding: .42rem .75rem; background: #e1f8e9; color: #146c37; letter-spacing: .025em; }
+.pricing-card h3 { color: #1b343c; font-size: 1.35rem; letter-spacing: -.025em; }
+.pricing-card p { color: #46575e; line-height: 1.7; }
+.pricing-price { color: #146c37; margin: .85rem 0 1.1rem; }
+.pricing-price small { color: #46575e; font-size: .9rem; }
+.pricing-features li { color: #2e4148; line-height: 1.5; padding: .65rem 0; border-bottom-color: #e8eef0; }
+.pricing-features li i { color: #159447; }
+.pricing-card .btn, .one-time-wrap .btn { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 49px; padding: .85rem 1.1rem; border-radius: 999px; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.pricing-card .btn-success { color: #fff; background: #168644; border-color: #168644; box-shadow: 0 8px 18px rgba(22,134,68,.2); }
+.pricing-card .btn-success:hover { background: #116d36; border-color: #116d36; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(22,134,68,.25); }
+.pricing-card .btn-outline-success { color: #16713b; background: #fff; border: 1.5px solid #239a52; }
+.pricing-card .btn-outline-success:hover { color: #fff; background: #168644; border-color: #168644; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22,134,68,.18); }
+.pricing-note { color: #4c5c62; font-size: .9rem; }
+.one-time-wrap { max-width: 900px; margin-top: 1.8rem; padding: clamp(1.25rem, 3vw, 1.8rem); gap: 1.3rem; border: 1px solid #cbdadf; border-radius: 22px; background: linear-gradient(120deg, #f3f8f9, #e8f2f4); box-shadow: 0 12px 30px rgba(20,45,52,.07); }
+.one-time-wrap > div:first-child { flex: 1; }
+.one-time-wrap h3 { color: #1b343c; font-size: 1.2rem; }
+.one-time-wrap p { color: #43565d; line-height: 1.65; margin-top: .35rem; }
+.one-time-price { color: #146c37; font-size: clamp(1.6rem, 3vw, 2rem); letter-spacing: -.04em; }
+.one-time-wrap .btn-dark { flex-shrink: 0; color: #fff; background: #1b343c; border-color: #1b343c; padding-inline: 1.35rem; }
+.one-time-wrap .btn-dark:hover { background: #28505b; border-color: #28505b; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(27,52,60,.2); }
+
+/* Proporção 16:9: remove o excesso de espaço branco acima e abaixo do player. */
+.video-section { padding-inline: clamp(12px, 3vw, 28px); }
+.video-section h2 { margin-bottom: 1.5rem !important; }
+.video-wrap { width: 100%; max-width: 1000px; height: auto; aspect-ratio: 16 / 9; padding-bottom: 0; border: 0; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 16px 38px rgba(0,0,0,.2); }
+.video-wrap iframe { display: block; width: 100%; height: 100%; border: 0; border-radius: 0; }
+@media (max-width: 768px) {
+  .hero-buttons { display: flex; flex-direction: column; gap: .7rem; }
+  .hero-buttons a { width: min(100%, 390px); margin: 0 auto; }
+  .pricing-intro p { font-size: 1rem; }
+  .pricing-card { border-radius: 18px; }
+  .one-time-wrap { align-items: stretch; }
+  .one-time-wrap .btn { width: 100%; }
+  .video-wrap { border-radius: 10px; }
+}
+
+
+/* ===== Ajuste de contraste e nova direção visual dos planos ===== */
+.pricing-section { position: relative; }
+.pricing-intro { max-width: 850px; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
+.pricing-intro h2 {
+  color: #f7fbfc !important;
+  font-size: clamp(2rem, 4.3vw, 3rem);
+  line-height: 1.12;
+  text-shadow: 0 3px 18px rgba(0,0,0,.28);
+}
+.pricing-intro p {
+  color: #d7e5e9 !important;
+  font-size: clamp(1rem, 1.8vw, 1.12rem);
+  line-height: 1.8;
+  max-width: 66ch;
+}
+.pricing-grid { gap: clamp(1rem, 2vw, 1.5rem); align-items: stretch; }
+.pricing-card {
+  isolation: isolate; overflow: hidden; min-height: 100%;
+  border: 1px solid #dce7e9; border-radius: 24px;
+  padding: clamp(1.35rem, 2.5vw, 2rem);
+  background: linear-gradient(155deg, #ffffff 0%, #f7fbfa 100%);
+  box-shadow: 0 16px 38px rgba(0,0,0,.14);
+}
+.pricing-card::before {
+  content: ""; position: absolute; z-index: -1; inset: 0 0 auto; height: 6px;
+  background: linear-gradient(90deg, #1b8f4b, #71dfa0);
+}
+.pricing-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(0,0,0,.2); }
+.pricing-card.featured {
+  border: 2px solid #29c765;
+  background: linear-gradient(155deg, #f1fff6 0%, #ffffff 54%, #f7fbfa 100%);
+  box-shadow: 0 18px 42px rgba(24,160,79,.2);
+  transform: translateY(-7px);
+}
+.pricing-card.featured::before { height: 8px; background: linear-gradient(90deg, #149447, #57e58d, #149447); }
+.pricing-tag { font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
+.pricing-card h3 { font-size: clamp(1.25rem, 1.8vw, 1.48rem); line-height: 1.2; margin-bottom: .65rem; }
+.pricing-card p { min-height: 5.1em; font-size: .97rem; }
+.pricing-price { padding: .85rem 0 1rem; border-bottom: 1px solid #e1e9e8; font-size: clamp(2.15rem, 3vw, 2.8rem); }
+.pricing-features { margin: .35rem 0 1.5rem; padding: 0; }
+.pricing-features li { display: flex; align-items: flex-start; gap: .55rem; padding: .72rem 0; font-size: .94rem; }
+.pricing-features li i { flex: 0 0 auto; margin-top: .18rem; }
+.pricing-card .btn, .one-time-wrap .btn {
+  min-height: 52px; border-radius: 14px; font-size: .98rem;
+  letter-spacing: .01em; box-shadow: 0 8px 18px rgba(20,60,40,.1);
+}
+.pricing-card .btn-outline-success { border-width: 1.5px; background: #f7fff9; }
+.pricing-card .btn-success { background: linear-gradient(135deg, #168644, #22b45b); border: 0; }
+.pricing-card .btn:hover, .one-time-wrap .btn:hover { transform: translateY(-3px); }
+.one-time-wrap {
+  max-width: 1000px; margin: 2rem auto 0; padding: clamp(1.4rem, 3vw, 2rem);
+  border: 1px solid rgba(216,233,237,.95); border-left: 6px solid #22a957;
+  border-radius: 24px; background: linear-gradient(120deg, #fff 0%, #f0f8f7 100%);
+  box-shadow: 0 18px 40px rgba(0,0,0,.12);
+}
+.one-time-wrap h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
+.one-time-price { white-space: nowrap; font-weight: 900; }
+.pricing-note { color: #d5e1e4 !important; max-width: 900px; margin: 1.4rem auto 0; text-align: center; line-height: 1.65; }
+@media (max-width: 900px) {
+  .pricing-card p { min-height: 0; }
+  .pricing-card.featured { transform: none; }
+}
+@media (max-width: 560px) {
+  .pricing-intro h2 { font-size: clamp(1.8rem, 8vw, 2.35rem); }
+  .pricing-card { border-radius: 20px; }
+  .one-time-wrap { border-left-width: 4px; }
+}
+
+
+/* FAQ: leitura clara e acordeões acessíveis */
+.faq-section { max-width: 900px; margin: clamp(2.5rem, 6vw, 5rem) auto 1rem; padding: 0 clamp(.75rem, 2vw, 1rem); color: #f5fafb; }
+.faq-heading { text-align: center; margin-bottom: 1.5rem; }
+.faq-kicker { display: inline-block; margin-bottom: .55rem; color: #78e6a0; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.faq-heading h2 { color: #f7fbfc; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.035em; }
+.faq-heading p { color: #d7e5e9; line-height: 1.7; }
+.faq-list { display: grid; gap: .8rem; }
+.faq-item { border: 1px solid rgba(215,232,236,.2); border-radius: 16px; background: rgba(255,255,255,.055); overflow: hidden; }
+.faq-item summary { position: relative; padding: 1.1rem 3rem 1.1rem 1.2rem; cursor: pointer; color: #f7fbfc; font-weight: 750; line-height: 1.5; list-style: none; }
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after { content: '+'; position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%); color: #78e6a0; font-size: 1.5rem; font-weight: 500; }
+.faq-item[open] summary::after { content: '−'; }
+.faq-item p { margin: 0; padding: 0 1.2rem 1.2rem; color: #d6e3e7; line-height: 1.75; }
+.faq-item a { color: #8aefad; text-decoration: underline; text-underline-offset: 3px; }
+.faq-item a:hover { color: #fff; }
+@media (prefers-reduced-motion: no-preference) { .faq-item { transition: border-color .2s ease, background .2s ease; } .faq-item:hover { border-color: rgba(120,230,160,.55); background: rgba(255,255,255,.075); } }
+
+/* ===== Refinamento responsivo: planos mais leves em tablet e celular ===== */
+@media (max-width: 768px) {
+  .pricing-section { padding: 2.75rem 1rem 3rem; }
+  .pricing-intro { padding: 0 .25rem; margin-bottom: 1.65rem; }
+  .pricing-intro h2 { max-width: 18ch; margin-inline: auto; font-size: clamp(1.8rem, 7vw, 2.25rem); line-height: 1.14; }
+  .pricing-intro p { font-size: .96rem; line-height: 1.65; margin-top: .8rem; }
+  .pricing-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.15rem; }
+  .pricing-card,
+  .pricing-card.featured {
+    min-height: 0; padding: 1.25rem 1.15rem 1.15rem; border-radius: 20px;
+    transform: none; box-shadow: 0 8px 22px rgba(0,0,0,.11);
+  }
+  .pricing-card:hover { transform: none; }
+  .pricing-tag { margin-bottom: .7rem; padding: .36rem .65rem; font-size: .7rem; }
+  .pricing-card h3 { margin: 0 0 .45rem; font-size: 1.24rem; line-height: 1.25; }
+  .pricing-card p { min-height: 0; margin-bottom: .7rem; font-size: .92rem; line-height: 1.58; }
+  .pricing-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem; margin: .25rem 0 .55rem; padding: .65rem 0 .8rem; font-size: 2.05rem; line-height: 1.1; }
+  .pricing-price small { font-size: .86rem; }
+  .pricing-features { margin: .15rem 0 1rem; }
+  .pricing-features li { gap: .5rem; padding: .52rem 0; font-size: .88rem; line-height: 1.45; border-bottom-color: #edf1f2; }
+  .pricing-features li:last-child { border-bottom: 0; }
+  .pricing-features li i { margin-top: .12rem; font-size: .85rem; }
+  .pricing-card .btn { width: 100%; min-height: 48px; padding: .78rem 1rem; border-radius: 13px; font-size: .94rem; }
+  .pricing-note { margin-top: 1rem; padding-inline: .2rem; font-size: .82rem; line-height: 1.6; }
+  .one-time-wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; margin-top: 1.25rem; padding: 1.2rem 1.1rem; border-radius: 20px; }
+  .one-time-wrap h3 { font-size: 1.13rem; line-height: 1.3; }
+  .one-time-wrap p { font-size: .9rem; line-height: 1.6; }
+  .one-time-price { font-size: 1.85rem; }
+  .one-time-wrap .btn { width: 100%; min-height: 48px; border-radius: 13px; }
+}
+@media (max-width: 380px) {
+  .pricing-section { padding-inline: .75rem; }
+  .pricing-card, .pricing-card.featured { padding: 1.05rem .95rem 1rem; }
+  .pricing-card h3 { font-size: 1.16rem; }
+  .pricing-price { font-size: 1.9rem; }
+  .pricing-features li { font-size: .85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pricing-card, .pricing-card .btn, .one-time-wrap .btn { transition: none !important; }
+}
 </style>
 
 <!-- =================== HERO =================== -->
 <section class="hero-section">
   <div class="hero-overlay" aria-hidden="true"></div>
   <div class="hero-content container" data-reveal>
-    <h1>Crio sites sob medida que encantam e convertem</h1>
-    <p>Design estratégico, código limpo e soluções digitais que geram resultados.</p>
+    <h1>Sua empresa merece uma presença digital à altura do seu trabalho</h1>
+    <p>A MedidaWeb desenvolve sites profissionais, responsivos e pensados para apresentar seu negócio com clareza, credibilidade e personalidade.</p>
     <div class="hero-buttons">
-      <a href="#portfolio" class="btn btn-success btn-lg">Ver Projetos</a>
-      <a href="https://wa.me/27988392915" target="_blank" class="btn btn-outline-light btn-lg" rel="noopener">Fale no WhatsApp</a>
+      <a href="#planos" class="btn btn-success btn-lg">Conheça os planos</a>
+      <a href="https://wa.me/27995082429" target="_blank" class="btn btn-outline-light btn-lg" rel="noopener">Fale no WhatsApp</a>
     </div>
   </div>
 </section>
@@ -167,78 +418,179 @@
     <div class="col-md-3 col-6" data-reveal>
       <div class="benefit-card h-100">
         <i class="bi bi-clock-history" aria-hidden="true"></i>
-        <h5>Resposta em 24h</h5>
-        <p>Atendimento rápido e objetivo para não perder tempo.</p>
+        <h5>Imagem profissional</h5>
+        <p>Apresente seus serviços e fortaleça a confiança dos seus clientes.</p>
       </div>
     </div>
     <div class="col-md-3 col-6" data-reveal>
       <div class="benefit-card h-100">
         <i class="bi bi-arrow-repeat" aria-hidden="true"></i>
-        <h5>2 Revisões Gratuitas</h5>
-        <p>Garantia de ajustes após entrega sem custo extra.</p>
+        <h5>Design responsivo</h5>
+        <p>Experiência adaptada para celular, tablet e computador.</p>
       </div>
     </div>
     <div class="col-md-3 col-6" data-reveal>
       <div class="benefit-card h-100">
         <i class="bi bi-camera-video" aria-hidden="true"></i>
-        <h5>Videochamada</h5>
-        <p>Alinhamento de projeto direto e claro.</p>
+        <h5>Conteúdo bem organizado</h5>
+        <p>Informações, imagens e chamadas distribuídas com propósito.</p>
       </div>
     </div>
     <div class="col-md-3 col-6" data-reveal>
       <div class="benefit-card h-100">
         <i class="bi bi-whatsapp" aria-hidden="true"></i>
-        <h5>Atendimento Direto</h5>
-        <p>Contato pelo WhatsApp para maior praticidade.</p>
+        <h5>Suporte próximo</h5>
+        <p>Fale diretamente com a MedidaWeb durante o projeto.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ================== PLANOS ================== -->
+<section id="planos" class="pricing-section container" data-reveal>
+  <div class="pricing-intro">
+    <h2>Um site profissional para cada fase do seu negócio</h2>
+    <p>Escolha a estrutura ideal para apresentar sua empresa. Os planos são anuais e incluem hospedagem e endereço do site conforme as condições da plataforma Render, além de manutenção dentro do escopo contratado.</p>
+  </div>
+  <div class="pricing-grid">
+    <article class="pricing-card" data-reveal>
+      <span class="pricing-tag">Essencial</span>
+      <h3>Presença digital</h3>
+      <p>Landing page ou página institucional/apresentativa, simples e objetiva, para divulgar sua empresa, seus serviços e canais de contato.</p>
+      <div class="pricing-price">R$ 19,90 <small>/ ano</small></div>
+      <ul class="pricing-features">
+        <li><i class="bi bi-check-circle-fill"></i> 1 página de apresentação</li>
+        <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
+        <li><i class="bi bi-check-circle-fill"></i> Até 1 imagem + conteúdo textual</li>
+        <li><i class="bi bi-check-circle-fill"></i> Layout responsivo para celular, tablet e desktop</li>
+        <li><i class="bi bi-check-circle-fill"></i> Botões de WhatsApp, Instagram e links para redes sociais, páginas ou serviços</li>
+        <li><i class="bi bi-check-circle-fill"></i> Tipografia legível e estrutura organizada</li>
+        <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
+      </ul>
+      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/tyyd1dd3bn34glfj" target="_blank" rel="noopener">Pagar e contratar</a>
+    </article>
+    <article class="pricing-card featured" data-reveal>
+      <span class="pricing-tag">Mais escolhido</span>
+      <h3>Presença em destaque</h3>
+      <p>Landing page ou site institucional/apresentativo com mais espaço para apresentar serviços, diferenciais e informações da empresa.</p>
+      <div class="pricing-price">R$ 29,90 <small>/ ano</small></div>
+      <ul class="pricing-features">
+        <li><i class="bi bi-check-circle-fill"></i> Até 2 páginas institucionais/apresentativas</li>
+        <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
+        <li><i class="bi bi-check-circle-fill"></i> Até 5 imagens + conteúdo textual</li>
+        <li><i class="bi bi-check-circle-fill"></i> Landing page ou site institucional/apresentativo com design mais criativo</li>
+        <li><i class="bi bi-check-circle-fill"></i> Layout responsivo para celular, tablet e desktop</li>
+        <li><i class="bi bi-check-circle-fill"></i> Botões de WhatsApp, Instagram e links para redes sociais, páginas ou serviços</li>
+        <li><i class="bi bi-check-circle-fill"></i> Tipografia e hierarquia visual cuidadas</li>
+        <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
+      </ul>
+      <a class="btn btn-success" href="https://www.asaas.com/000/c/8g1ylxgtj7ylmasb" target="_blank" rel="noopener">Pagar e contratar</a>
+    </article>
+    <article class="pricing-card" data-reveal>
+      <span class="pricing-tag">Completo</span>
+      <h3>Experiência premium</h3>
+      <p>Site institucional/apresentativo com mais páginas, conteúdo visual e espaço para destacar a identidade da sua empresa.</p>
+      <div class="pricing-price">R$ 49,90 <small>/ ano</small></div>
+      <ul class="pricing-features">
+        <li><i class="bi bi-check-circle-fill"></i> Até 3 páginas institucionais/apresentativas</li>
+        <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
+        <li><i class="bi bi-check-circle-fill"></i> Até 8 imagens + 1 vídeo</li>
+        <li><i class="bi bi-check-circle-fill"></i> Design mais elaborado para site institucional/apresentativo</li>
+        <li><i class="bi bi-check-circle-fill"></i> Layout responsivo para celular, tablet e desktop</li>
+        <li><i class="bi bi-check-circle-fill"></i> Botões de WhatsApp, Instagram e links para redes sociais, páginas ou serviços</li>
+        <li><i class="bi bi-check-circle-fill"></i> Boa tipografia e navegação intuitiva</li>
+        <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
+      </ul>
+      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/nocd64s9ap75f25n" target="_blank" rel="noopener">Pagar e contratar</a>
+    </article>
+  </div>
+  <div class="one-time-wrap" data-reveal>
+    <div>
+      <h3>Prefere pagar uma única vez?</h3>
+      <p>Landing page ou site institucional/apresentativo de uma página, responsivo e com botões que direcionam para WhatsApp, redes sociais ou links externos. Não inclui banco de dados, login ou integração de pagamentos. Hospedagem e endereço disponibilizados conforme as condições da Render; manutenção contínua não incluída.</p>
+    </div>
+    <div class="one-time-price">R$ 150,00</div>
+    <a class="btn btn-dark" href="https://www.asaas.com/000/c/hahvl3vq0shbv8gm" target="_blank" rel="noopener">Contratar por R$ 150</a>
+  </div>
+  <p class="pricing-note">Os planos são anuais. Todos os serviços são voltados a sites estáticos de apresentação, como landing pages e sites institucionais; não incluem sistemas com banco de dados, login/área restrita ou integração de pagamentos. Recursos e alterações além do escopo devem ser combinados previamente. A hospedagem e o endereço do site dependem das condições, políticas e termos de uso da Render.</p>
+</section>
+
+  <section class="faq-section" id="perguntas-frequentes" data-reveal aria-labelledby="faq-title">
+    <div class="faq-heading">
+      <span class="faq-kicker">Dúvidas frequentes</span>
+      <h2 id="faq-title">Tudo o que você precisa saber</h2>
+      <p>Informações importantes antes de contratar seu site com a MedidaWeb.</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Que tipos de site estão incluídos nos planos?</summary>
+        <p>Os planos são para sites apresentativos, como landing pages e sites institucionais, criados para divulgar uma empresa, serviços, produtos e canais de contato. Botões podem direcionar o visitante para WhatsApp, Instagram, redes sociais ou páginas externas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Os planos incluem sistemas, login ou pagamentos dentro do site?</summary>
+        <p>Não. Os planos não incluem sites com banco de dados, cadastro ou login de usuários, áreas restritas, sistemas dinâmicos ou integração de pagamentos. Botões podem direcionar para serviços externos, mas o processamento de pagamentos não é integrado ao site.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Quantas revisões posso solicitar depois que o site ficar pronto?</summary>
+        <p>Estão incluídas até duas revisões gratuitas após a entrega. Solicitações adicionais ou mudanças fora do escopo contratado serão tratadas como manutenção ou serviço à parte, mediante combinação prévia.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Como funcionam o domínio e a hospedagem?</summary>
+        <p>A hospedagem e o endereço gratuito disponibilizado pela Render estão incluídos conforme as condições da plataforma. A disponibilidade e o funcionamento dependem das políticas, limitações e termos de uso da Render, que recomendamos ler antes da contratação. <a href="https://render.com/terms" target="_blank" rel="noopener noreferrer">Consultar os Termos de Uso da Render</a> · <a href="https://render.com/privacy" target="_blank" rel="noopener noreferrer">Política de Privacidade</a>.</p>
+      </details>
+      <details class="faq-item">
+        <summary>A manutenção está incluída?</summary>
+        <p>Nos planos anuais, a manutenção está limitada ao escopo contratado. Novas páginas, funcionalidades, alterações extensas ou recursos que transformem o site em um sistema não estão incluídos e precisam ser avaliados separadamente. Na opção de pagamento único, a manutenção contínua não está incluída.</p>
+      </details>
+    </div>
+  </section>
+
+<!-- Cada par de imagens abre o site correspondente ao projeto. -->
 <!-- ================== GALERIA (6) ================== -->
 <section id="portfolio" class="gallery container my-5" data-reveal>
-  <h2 class="text-center mb-5">Meus Projetos</h2>
+  <h2 class="text-center mb-3">Projetos em destaque</h2>
+  <p class="text-center mb-5">Conheça alguns exemplos de trabalhos e soluções digitais.</p>
   <div class="row g-3 g-md-4">
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto1.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto1.png') }}?v=2" alt="Projeto 1" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 1</span>
+      <a class="gallery-card" href="https://casa-villamores.lojaintegrada.com.br/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto1.png') }}?v=2" alt="Casa Vila Amores — projeto 1" loading="lazy" width="1280" height="720">
+        <span class="overlay">Casa Vila Amores <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto2.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto2.png') }}?v=2" alt="Projeto 2" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 2</span>
+      <a class="gallery-card" href="https://casa-villamores.lojaintegrada.com.br/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto2.png') }}?v=2" alt="Casa Vila Amores — projeto 2" loading="lazy" width="1280" height="720">
+        <span class="overlay">Casa Vila Amores <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto3.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto3.png') }}?v=2" alt="Projeto 3" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 3</span>
+      <a class="gallery-card" href="https://camarotebarbeariaes.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto3.png') }}?v=2" alt="Camarote Barbearia ES — projeto 1" loading="lazy" width="1280" height="720">
+        <span class="overlay">Camarote Barbearia ES <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto4.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto4.png') }}?v=2" alt="Projeto 4" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 4</span>
+      <a class="gallery-card" href="https://camarotebarbeariaes.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto4.png') }}?v=2" alt="Camarote Barbearia ES — projeto 2" loading="lazy" width="1280" height="720">
+        <span class="overlay">Camarote Barbearia ES <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto5.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto5.png') }}?v=2" alt="Projeto 5" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 5</span>
+      <a class="gallery-card" href="https://polly-oazw.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto5.png') }}?v=2" alt="Polly — projeto 1" loading="lazy" width="1280" height="720">
+        <span class="overlay">Polly <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
     <div class="col-6 col-md-4" data-reveal>
-      <a class="gallery-card" href="{{ url_for('static', filename='imagem/projeto6.png') }}" target="_blank" rel="noopener">
-        <img src="{{ url_for('static', filename='imagem/projeto6.png') }}?v=2" alt="Projeto 6" loading="lazy" width="1280" height="720">
-        <span class="overlay">Projeto 6</span>
+      <a class="gallery-card" href="https://polly-oazw.onrender.com/" target="_blank" rel="noopener noreferrer">
+        <img src="{{ url_for('static', filename='imagem/projeto6.png') }}?v=2" alt="Polly — projeto 2" loading="lazy" width="1280" height="720">
+        <span class="overlay">Polly <i class="bi bi-box-arrow-up-right"></i></span>
       </a>
     </div>
 
@@ -247,7 +599,7 @@
 
 <!-- =================== VÍDEO =================== -->
 <section class="video-section" data-reveal>
-  <h2 class="mb-4 text-center">Projeto em Destaque</h2>
+  <h2 class="mb-4 text-center">Veja o cuidado em cada detalhe</h2>
   <div class="video-wrap">
     <iframe
       src="https://player.vimeo.com/video/1124364257?title=0&byline=0&portrait=0"
@@ -261,7 +613,7 @@
 
 <!-- ============== BOTÕES FLUTUANTES ============== -->
 <div class="floating-buttons" aria-label="Ações rápidas">
-  <a href="https://wa.me/27988392915" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener">
+  <a href="https://wa.me/27995082429" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener">
     <i class="bi bi-whatsapp" aria-hidden="true"></i>
   </a>
   <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
@@ -297,4 +649,5 @@
 })();
 </script>
 
+</div>
 {% endblock %}

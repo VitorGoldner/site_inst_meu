@@ -92,11 +92,11 @@
 
 
 /* === Movimento refinado da página Sobre === */
-.sobre-hero::before { animation: sobreOrbit 20s ease-in-out infinite alternate; }
+.sobre-hero::before { animation: none; }
 .sobre-hero::after { animation: sobreBadgeIn .7s .1s both cubic-bezier(.2,.75,.25,1); }
 .sobre-hero h2 { animation: sobreTextIn .85s .18s both cubic-bezier(.2,.75,.25,1); }
 .sobre-hero p { animation: sobreTextIn .85s .32s both cubic-bezier(.2,.75,.25,1); }
-.sobre-intro::before { animation: quoteFloat 4.5s ease-in-out infinite; }
+.sobre-intro::before { animation: none; }
 .sobre-card { transform-style: preserve-3d; }
 .sobre-card:nth-child(2) { transition-delay: .05s; }
 .sobre-card:nth-child(3) { transition-delay: .1s; }
@@ -131,23 +131,23 @@
 /* === LIVING UI: movimento contínuo da página Sobre === */
 .sobre-hero {
   background-size: 220% 220%;
-  animation: aboutGradientDrift 22s ease-in-out infinite alternate;
+  animation: none; background-size: cover;
 }
 .sobre-hero::before {
-  animation: sobreOrbit 20s ease-in-out infinite alternate, aboutRingPulse 8s ease-in-out infinite;
+  animation: none;
 }
 .sobre-hero::after {
   box-shadow:0 0 0 0 rgba(54,229,139,.1);
-  animation: sobreBadgeIn .7s .1s both cubic-bezier(.2,.75,.25,1), aboutLabelPulse 4.5s ease-in-out infinite 1s;
+  animation: sobreBadgeIn .35s .05s both cubic-bezier(.2,.75,.25,1);
 }
 .sobre-intro::before {
   text-shadow:0 0 24px rgba(54,229,139,.18);
-  animation: quoteFloat 4.5s ease-in-out infinite, quoteGlow 6s ease-in-out infinite;
+  animation: none;
 }
-.sobre-card::after { animation: aboutCardAura 10s ease-in-out infinite alternate; }
+.sobre-card::after { animation: none; }
 .sobre-card:nth-child(2)::after { animation-delay:-3s; }
 .sobre-card:nth-child(3)::after { animation-delay:-6s; }
-.sobre-card i { animation: aboutIconFloat 5.2s ease-in-out infinite; }
+.sobre-card i { animation: none; }
 .sobre-card:nth-child(2) i { animation-delay:-1.7s; }
 .sobre-card:nth-child(3) i { animation-delay:-3.4s; }
 @keyframes aboutGradientDrift {
@@ -183,6 +183,14 @@
   .sobre-intro::before, .sobre-card::after, .sobre-card i { animation:none !important; }
 }
 
+
+@media (prefers-reduced-motion: no-preference) {
+  .sobre-card, .sobre-card i { transition-duration: .18s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sobre-hero, .sobre-hero::before, .sobre-hero::after, .sobre-hero h2, .sobre-hero p,
+  .sobre-intro::before, .sobre-card, .sobre-card::after, .sobre-card i { animation: none !important; transition: none !important; }
+}
 </style>
 
 <div class="sobre-wrap">

@@ -43,7 +43,7 @@
         radial-gradient(ellipse at 12% 8%, rgba(37, 123, 145, .22), transparent 36rem),
         radial-gradient(ellipse at 90% 45%, rgba(31, 123, 94, .12), transparent 32rem),
         linear-gradient(135deg, var(--brand-950) 0%, var(--brand-900) 48%, #102f3b 100%);
-      background-attachment: fixed;
+      background-attachment: scroll;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       overflow-x: clip;
     }
@@ -307,7 +307,43 @@ body::after {
   .site-footer::after, #scrollProgress, #backToTop.is-visible { animation: none !important; }
 }
 
-</style>
+
+
+    /* Controles flutuantes globais: fora de elementos com transform/overflow. */
+    .floating-buttons {
+      position: fixed !important; right: max(16px, env(safe-area-inset-right));
+      bottom: max(18px, env(safe-area-inset-bottom)); z-index: 3000;
+      display: flex; flex-direction: column; gap: 12px;
+      visibility: visible; opacity: 1; pointer-events: auto;
+    }
+    .floating-buttons a {
+      display: grid; place-items: center; width: 54px; height: 54px;
+      border-radius: 50%; color: #fff; font-size: 27px; text-decoration: none;
+      box-shadow: 0 5px 16px rgba(0,0,0,.28);
+      transition: transform .16s ease, box-shadow .16s ease;
+    }
+    .floating-buttons .whatsapp { background: #25D366; }
+    .floating-buttons .instagram { background: radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af, #515bd4); }
+    @media (hover:hover) and (pointer:fine) { .floating-buttons a:hover { transform: scale(1.06); } }
+    @media (max-width: 420px) { .floating-buttons { right: 12px; bottom: max(14px, env(safe-area-inset-bottom)); gap: 9px; } .floating-buttons a { width: 48px; height: 48px; font-size: 24px; } }
+
+    /* Movimento mais leve e consistente em desktop, tablet e celular. */
+    html { scroll-behavior: smooth; }
+    body { background-attachment: scroll; }
+    .site-navbar, .site-navbar *, .site-footer .social a, #backToTop {
+      transition-duration: .16s !important;
+    }
+    .site-navbar .navbar-brand::before, body::before, body::after,
+    .site-footer::after, #scrollProgress, #backToTop.is-visible {
+      animation: none !important;
+    }
+    @media (prefers-reduced-motion: no-preference) {
+      [data-reveal] { transition: opacity .32s ease, transform .32s ease; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    }
+  </style>
 </head>
 <body>
   <div id="scrollProgress" aria-hidden="true"></div>
@@ -436,6 +472,11 @@ body::after {
     }
   })();
   </script>
+
+  <div class="floating-buttons" aria-label="Ações rápidas">
+    <a href="https://wa.me/27995082429" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener noreferrer"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram" aria-label="Instagram" rel="noopener noreferrer"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+  </div>
 
 </body>
 </html>

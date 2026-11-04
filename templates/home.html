@@ -193,6 +193,14 @@
 .pricing-intro h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); font-weight: 800; letter-spacing: -.04em; }
 .pricing-intro p { color: #66737a; line-height: 1.75; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.15rem; align-items: stretch; }
+.pricing-cycle { margin: .25rem 0 1rem; padding: .85rem; border-radius: 12px; background: #f3f8f5; border: 1px solid #dcebe1; }
+.pricing-cycle p { margin: .25rem 0; font-size: .94rem; color: #34434a; }
+.pricing-cycle strong { color: #173b2a; }
+.pricing-cycle small { color: #68757b; }
+.pricing-card .btn + .btn { margin-top: .55rem; }
+.custom-plan { max-width: 850px; margin: 1.5rem auto 0; padding: clamp(1.3rem,3vw,2rem); border-radius: 18px; border: 1px solid #dce5e7; background: #edf5f2; text-align: center; }
+.custom-plan h3 { font-weight: 800; }
+.custom-plan p { color: #526269; line-height: 1.7; }
 .pricing-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #e4e9eb; border-radius: 18px; padding: clamp(1.2rem,2.4vw,1.8rem); box-shadow: 0 8px 24px rgba(15,32,39,.07); transition: transform .25s ease, box-shadow .25s ease; }
 .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(15,32,39,.13); }
 .pricing-card.featured { border: 2px solid #22c55e; }
@@ -206,10 +214,7 @@
 .pricing-features li i { color: #16a34a; margin-right: .45rem; }
 .pricing-card .btn { width: 100%; border-radius: 10px; font-weight: 700; padding: .8rem 1rem; }
 .pricing-note { margin: 1.3rem auto 0; max-width: 850px; text-align: center; font-size: .88rem; color: #6b777d; line-height: 1.65; }
-.one-time-wrap { max-width: 760px; margin: 1.5rem auto 0; padding: 1.25rem 1.4rem; display: flex; justify-content: space-between; align-items: center; gap: 1rem; border-radius: 16px; background: #edf2f3; border: 1px solid #dce5e7; }
 .one-time-wrap h3 { margin: 0 0 .25rem; font-size: 1.1rem; font-weight: 800; }
-.one-time-wrap p { margin: 0; color: #59686e; font-size: .92rem; }
-.one-time-price { white-space: nowrap; font-size: 1.65rem; font-weight: 800; color: #173b2a; }
 @media(max-width: 900px) { .pricing-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; } }
 @media(max-width: 560px) { .one-time-wrap { align-items: flex-start; flex-direction: column; } }
 
@@ -227,7 +232,7 @@
 .hero-buttons .btn-success:hover { color: #10251a; background: #a0f7bd; border-color: #a0f7bd; box-shadow: 0 14px 30px rgba(34,197,94,.28); }
 .hero-buttons .btn-outline-light { color: #fff; background: rgba(12,25,30,.28); border: 1px solid rgba(255,255,255,.82); backdrop-filter: blur(8px); }
 .hero-buttons .btn-outline-light:hover { color: #172a22; background: #fff; border-color: #fff; }
-.hero-buttons a:focus-visible, .pricing-card .btn:focus-visible, .one-time-wrap .btn:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
+.hero-buttons a:focus-visible, .pricing-card .btn:focus-visible, .custom-plan .btn:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
 
 .pricing-section { color: #172b32; }
 .pricing-intro { max-width: 790px; margin-bottom: 2.7rem; }
@@ -244,19 +249,16 @@
 .pricing-price small { color: #46575e; font-size: .9rem; }
 .pricing-features li { color: #2e4148; line-height: 1.5; padding: .65rem 0; border-bottom-color: #e8eef0; }
 .pricing-features li i { color: #159447; }
-.pricing-card .btn, .one-time-wrap .btn { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 49px; padding: .85rem 1.1rem; border-radius: 999px; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.pricing-card .btn, { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 49px; padding: .85rem 1.1rem; border-radius: 999px; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
 .pricing-card .btn-success { color: #fff; background: #168644; border-color: #168644; box-shadow: 0 8px 18px rgba(22,134,68,.2); }
 .pricing-card .btn-success:hover { background: #116d36; border-color: #116d36; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(22,134,68,.25); }
 .pricing-card .btn-outline-success { color: #16713b; background: #fff; border: 1.5px solid #239a52; }
 .pricing-card .btn-outline-success:hover { color: #fff; background: #168644; border-color: #168644; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22,134,68,.18); }
 .pricing-note { color: #4c5c62; font-size: .9rem; }
-.one-time-wrap { max-width: 900px; margin-top: 1.8rem; padding: clamp(1.25rem, 3vw, 1.8rem); gap: 1.3rem; border: 1px solid #cbdadf; border-radius: 22px; background: linear-gradient(120deg, #f3f8f9, #e8f2f4); box-shadow: 0 12px 30px rgba(20,45,52,.07); }
 .one-time-wrap > div:first-child { flex: 1; }
-.one-time-wrap h3 { color: #1b343c; font-size: 1.2rem; }
 .one-time-wrap p { color: #43565d; line-height: 1.65; margin-top: .35rem; }
-.one-time-price { color: #146c37; font-size: clamp(1.6rem, 3vw, 2rem); letter-spacing: -.04em; }
-.one-time-wrap .btn-dark { flex-shrink: 0; color: #fff; background: #1b343c; border-color: #1b343c; padding-inline: 1.35rem; }
-.one-time-wrap .btn-dark:hover { background: #28505b; border-color: #28505b; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(27,52,60,.2); }
+-dark { flex-shrink: 0; color: #fff; background: #1b343c; border-color: #1b343c; padding-inline: 1.35rem; }
+-dark:hover { background: #28505b; border-color: #28505b; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(27,52,60,.2); }
 
 /* Proporção 16:9: remove o excesso de espaço branco acima e abaixo do player. */
 .video-section { padding-inline: clamp(12px, 3vw, 28px); }
@@ -268,8 +270,7 @@
   .hero-buttons a { width: min(100%, 390px); margin: 0 auto; }
   .pricing-intro p { font-size: 1rem; }
   .pricing-card { border-radius: 18px; }
-  .one-time-wrap { align-items: stretch; }
-  .one-time-wrap .btn { width: 100%; }
+  { width: 100%; }
   .video-wrap { border-radius: 10px; }
 }
 
@@ -316,21 +317,18 @@
 .pricing-features { margin: .35rem 0 1.5rem; padding: 0; }
 .pricing-features li { display: flex; align-items: flex-start; gap: .55rem; padding: .72rem 0; font-size: .94rem; }
 .pricing-features li i { flex: 0 0 auto; margin-top: .18rem; }
-.pricing-card .btn, .one-time-wrap .btn {
+.pricing-card .btn, {
   min-height: 52px; border-radius: 14px; font-size: .98rem;
   letter-spacing: .01em; box-shadow: 0 8px 18px rgba(20,60,40,.1);
 }
 .pricing-card .btn-outline-success { border-width: 1.5px; background: #f7fff9; }
 .pricing-card .btn-success { background: linear-gradient(135deg, #168644, #22b45b); border: 0; }
-.pricing-card .btn:hover, .one-time-wrap .btn:hover { transform: translateY(-3px); }
-.one-time-wrap {
+.pricing-card .btn:hover,:hover { transform: translateY(-3px); }
   max-width: 1000px; margin: 2rem auto 0; padding: clamp(1.4rem, 3vw, 2rem);
   border: 1px solid rgba(216,233,237,.95); border-left: 6px solid #22a957;
   border-radius: 24px; background: linear-gradient(120deg, #fff 0%, #f0f8f7 100%);
   box-shadow: 0 18px 40px rgba(0,0,0,.12);
 }
-.one-time-wrap h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); }
-.one-time-price { white-space: nowrap; font-weight: 900; }
 .pricing-note { color: #d5e1e4 !important; max-width: 900px; margin: 1.4rem auto 0; text-align: center; line-height: 1.65; }
 @media (max-width: 900px) {
   .pricing-card p { min-height: 0; }
@@ -339,7 +337,6 @@
 @media (max-width: 560px) {
   .pricing-intro h2 { font-size: clamp(1.8rem, 8vw, 2.35rem); }
   .pricing-card { border-radius: 20px; }
-  .one-time-wrap { border-left-width: 4px; }
 }
 
 
@@ -384,11 +381,8 @@
   .pricing-features li i { margin-top: .12rem; font-size: .85rem; }
   .pricing-card .btn { width: 100%; min-height: 48px; padding: .78rem 1rem; border-radius: 13px; font-size: .94rem; }
   .pricing-note { margin-top: 1rem; padding-inline: .2rem; font-size: .82rem; line-height: 1.6; }
-  .one-time-wrap { display: grid; grid-template-columns: minmax(0, 1fr); gap: .8rem; margin-top: 1.25rem; padding: 1.2rem 1.1rem; border-radius: 20px; }
   .one-time-wrap h3 { font-size: 1.13rem; line-height: 1.3; }
-  .one-time-wrap p { font-size: .9rem; line-height: 1.6; }
-  .one-time-price { font-size: 1.85rem; }
-  .one-time-wrap .btn { width: 100%; min-height: 48px; border-radius: 13px; }
+  { width: 100%; min-height: 48px; border-radius: 13px; }
 }
 @media (max-width: 380px) {
   .pricing-section { padding-inline: .75rem; }
@@ -398,8 +392,19 @@
   .pricing-features li { font-size: .85rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pricing-card, .pricing-card .btn, .one-time-wrap .btn { transition: none !important; }
+  .pricing-card, .pricing-card .btn, { transition: none !important; }
 }
+
+/* Grade exclusiva dos três planos anuais */
+.pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.billing-cycle-label { display:block; align-self:flex-start; margin: -.25rem 0 .55rem; padding:.38rem .65rem; border-radius:8px; background:#eaf7ee; color:#176b38; font-size:.74rem; font-weight:900; letter-spacing:.06em; }
+.billing-cycle-explainer { min-height:0 !important; margin:.1rem 0 .25rem; color:#3f555d !important; font-size:.88rem !important; line-height:1.5 !important; font-weight:600; }
+.pricing-card .pricing-price { margin:.35rem 0 .9rem; padding:.75rem 0 .9rem; }
+.pricing-card.featured { transform:none; }
+.pricing-card.featured:hover { transform:translateY(-5px); }
+@media(max-width: 900px) { .pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); max-width:850px; margin:0 auto; } }
+@media(max-width: 560px) { .pricing-grid { grid-template-columns:minmax(0,1fr); max-width:460px; } }
+
 </style>
 
 <!-- =================== HERO =================== -->
@@ -453,14 +458,19 @@
 <section id="planos" class="pricing-section container" data-reveal>
   <div class="pricing-intro">
     <h2>Um site profissional para cada fase do seu negócio</h2>
-    <p>Escolha a estrutura ideal para apresentar sua empresa. Os planos são anuais e incluem hospedagem e endereço do site conforme as condições da plataforma Render, além de manutenção dentro do escopo contratado.</p>
+    <p>Escolha o plano anual ideal para o seu negócio. Os valores apresentados correspondem ao ciclo completo de 12 meses, com cobrança uma vez por ano. Os planos incluem hospedagem e endereço do site conforme as condições da plataforma Render, além de manutenção dentro do escopo contratado.</p>
+  </div>
+  <div class="pricing-group-heading" data-reveal>
+    <h3>Planos anuais</h3>
   </div>
   <div class="pricing-grid">
     <article class="pricing-card" data-reveal>
       <span class="pricing-tag">Essencial</span>
+      <span class="billing-cycle-label">PLANO ANUAL</span>
       <h3>Presença digital</h3>
       <p>Landing page ou página institucional/apresentativa, simples e objetiva, para divulgar sua empresa, seus serviços e canais de contato.</p>
-      <div class="pricing-price">R$ 19,90 <small>/ ano</small></div>
+      <p class="billing-cycle-explainer">Valor total por um ciclo de 12 meses. Cobrança anual, renovada a cada ano.</p>
+      <div class="pricing-price">R$ 360,00 <small>total por 12 meses</small></div>
       <ul class="pricing-features">
         <li><i class="bi bi-check-circle-fill"></i> 1 página de apresentação</li>
         <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
@@ -470,13 +480,15 @@
         <li><i class="bi bi-check-circle-fill"></i> Tipografia legível e estrutura organizada</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/tyyd1dd3bn34glfj" target="_blank" rel="noopener">Pagar e contratar</a>
+      <a class="btn btn-outline-success" href="https://wa.me/27995082429?text=Ol%C3%A1%2C%20quero%20contratar%20o%20plano%20Essencial%20da%20MedidaWeb.%20Quero%20contratar%20o%20plano%20anual%20por%20R%24%20360%2C00." target="_blank" rel="noopener">Consultar contratação</a>
     </article>
     <article class="pricing-card featured" data-reveal>
       <span class="pricing-tag">Mais escolhido</span>
+      <span class="billing-cycle-label">PLANO ANUAL</span>
       <h3>Presença em destaque</h3>
       <p>Landing page ou site institucional/apresentativo com mais espaço para apresentar serviços, diferenciais e informações da empresa.</p>
-      <div class="pricing-price">R$ 29,90 <small>/ ano</small></div>
+      <p class="billing-cycle-explainer">Valor total por um ciclo de 12 meses. Cobrança anual, renovada a cada ano.</p>
+      <div class="pricing-price">R$ 720,00 <small>total por 12 meses</small></div>
       <ul class="pricing-features">
         <li><i class="bi bi-check-circle-fill"></i> Até 2 páginas institucionais/apresentativas</li>
         <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
@@ -487,13 +499,15 @@
         <li><i class="bi bi-check-circle-fill"></i> Tipografia e hierarquia visual cuidadas</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-success" href="https://www.asaas.com/000/c/8g1ylxgtj7ylmasb" target="_blank" rel="noopener">Pagar e contratar</a>
+      <a class="btn btn-success" href="https://wa.me/27995082429?text=Ol%C3%A1%2C%20quero%20contratar%20o%20plano%20Presen%C3%A7a%20em%20Destaque%20da%20MedidaWeb.%20Quero%20contratar%20o%20plano%20anual%20por%20R%24%20720%2C00." target="_blank" rel="noopener">Consultar contratação</a>
     </article>
     <article class="pricing-card" data-reveal>
       <span class="pricing-tag">Completo</span>
+      <span class="billing-cycle-label">PLANO ANUAL</span>
       <h3>Experiência premium</h3>
       <p>Site institucional/apresentativo com mais páginas, conteúdo visual e espaço para destacar a identidade da sua empresa.</p>
-      <div class="pricing-price">R$ 49,90 <small>/ ano</small></div>
+      <p class="billing-cycle-explainer">Valor total por um ciclo de 12 meses. Cobrança anual, renovada a cada ano.</p>
+      <div class="pricing-price">R$ 990,00 <small>total por 12 meses</small></div>
       <ul class="pricing-features">
         <li><i class="bi bi-check-circle-fill"></i> Até 3 páginas institucionais/apresentativas</li>
         <li><i class="bi bi-check-circle-fill"></i> Conteúdo estático: sem banco de dados, área de login ou integração de pagamentos</li>
@@ -504,18 +518,10 @@
         <li><i class="bi bi-check-circle-fill"></i> Boa tipografia e navegação intuitiva</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/nocd64s9ap75f25n" target="_blank" rel="noopener">Pagar e contratar</a>
+      <a class="btn btn-outline-success" href="https://wa.me/27995082429?text=Ol%C3%A1%2C%20quero%20contratar%20o%20plano%20Experi%C3%AAncia%20Premium%20da%20MedidaWeb.%20Quero%20contratar%20o%20plano%20anual%20por%20R%24%20990%2C00." target="_blank" rel="noopener">Consultar contratação</a>
     </article>
   </div>
-  <div class="one-time-wrap" data-reveal>
-    <div>
-      <h3>Prefere pagar uma única vez?</h3>
-      <p>Landing page ou site institucional/apresentativo de uma página, responsivo e com botões que direcionam para WhatsApp, redes sociais ou links externos. Não inclui banco de dados, login ou integração de pagamentos. Hospedagem e endereço disponibilizados conforme as condições da Render; manutenção contínua não incluída.</p>
-    </div>
-    <div class="one-time-price">R$ 150,00</div>
-    <a class="btn btn-dark" href="https://www.asaas.com/000/c/hahvl3vq0shbv8gm" target="_blank" rel="noopener">Contratar por R$ 150</a>
-  </div>
-  <p class="pricing-note">Os planos são anuais. Todos os serviços são voltados a sites estáticos de apresentação, como landing pages e sites institucionais; não incluem sistemas com banco de dados, login/área restrita ou integração de pagamentos. Recursos e alterações além do escopo devem ser combinados previamente. A hospedagem e o endereço do site dependem das condições, políticas e termos de uso da Render.</p>
+  <p class="pricing-note">Os valores apresentados correspondem ao ciclo completo de 12 meses, com cobrança anual — não são mensalidades. Os planos são voltados a sites estáticos de apresentação, como landing pages e sites institucionais; não incluem sistemas com banco de dados, login/área restrita ou integração de pagamentos. Recursos e alterações além do escopo devem ser combinados previamente. A hospedagem e o endereço do site dependem das condições, políticas e termos de uso da Render.</p>
 </section>
 
   <section class="faq-section" id="perguntas-frequentes" data-reveal aria-labelledby="faq-title">
@@ -543,7 +549,7 @@
       </details>
       <details class="faq-item">
         <summary>A manutenção está incluída?</summary>
-        <p>Nos planos anuais, a manutenção está limitada ao escopo contratado. Novas páginas, funcionalidades, alterações extensas ou recursos que transformem o site em um sistema não estão incluídos e precisam ser avaliados separadamente. Na opção de pagamento único, a manutenção contínua não está incluída.</p>
+        <p>Nos planos anuais, a manutenção está limitada ao escopo contratado. Novas páginas, funcionalidades, alterações extensas ou recursos que transformem o site em um sistema não estão incluídos e precisam ser avaliados separadamente. Projetos especiais, lojas virtuais e sistemas são avaliados separadamente, conforme o escopo e as funcionalidades desejadas.</p>
       </details>
     </div>
   </section>
@@ -619,7 +625,7 @@
   <a href="https://wa.me/27995082429" target="_blank" class="whatsapp" aria-label="WhatsApp" rel="noopener">
     <i class="bi bi-whatsapp" aria-hidden="true"></i>
   </a>
-  <a href="https://www.instagram.com/medidaweb_?srtk=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
+  <a href="https://www.instagram.com/medidaweb?igsh=MWJkMjNvY291MHF6Nw==" target="_blank" class="instagram" aria-label="Instagram" rel="noopener">
     <i class="bi bi-instagram" aria-hidden="true"></i>
   </a>
 </div>

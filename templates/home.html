@@ -10,7 +10,7 @@
   --ff-overlay-mobile: rgba(15, 32, 39, 0.45);
   --ff-card-shadow: 0 4px 18px rgba(0,0,0,0.10);
   --ff-card-shadow-hover: 0 10px 28px rgba(0,0,0,0.18);
-  --accent: #22c55e;
+  --accent: #2563eb;
 }
 
 /* ================== HERO ================== */
@@ -63,7 +63,7 @@
 }
 
 /* ================== Galeria ================== */
-.gallery{ background:#f5f5f5; padding:clamp(36px,6vw,60px) 20px; border-radius:16px; color:var(--ff-text); }
+.gallery{ background:#f3f7ff; padding:clamp(36px,6vw,60px) 20px; border-radius:16px; color:var(--ff-text); }
 .gallery h2{ letter-spacing:.2px; }
 
 /* Card da galeria */
@@ -94,16 +94,6 @@
   border-radius:12px; box-shadow:0 10px 35px rgba(0,0,0,.2);
 }
 .video-wrap iframe{ position:absolute; inset:0; width:100%; height:100%; border:0; border-radius:10px; background:#000; }
-
-/* =========== Botões Flutuantes =========== */
-.floating-buttons{ position:fixed; bottom:20px; right:20px; display:flex; flex-direction:column; gap:12px; z-index:999; }
-.floating-buttons a{
-  width:56px; height:56px; border-radius:50%; display:grid; place-items:center; color:#fff; font-size:28px;
-  box-shadow:0 4px 12px rgba(0,0,0,.2); transition:transform .25s ease; will-change:transform;
-}
-.floating-buttons a:hover{ transform:scale(1.08); }
-.floating-buttons .whatsapp{ background-color:#25D366; }
-.floating-buttons .instagram{ background:radial-gradient(circle at 30% 30%, #f58529, #dd2a7b, #8134af, #515bd4); }
 
 /* ===== Scroll Reveal ===== */
 [data-reveal]{ opacity:0; transform:translateY(36px); transition:opacity .6s ease, transform .6s ease; }
@@ -154,7 +144,7 @@
 
 /* ===== Refinamento tipográfico e acabamento da página inicial ===== */
 .hero-section { isolation: isolate; }
-.hero-overlay { background: linear-gradient(115deg, rgba(8,20,25,.72), rgba(15,32,39,.38)); }
+.hero-overlay { background: linear-gradient(115deg, rgba(5,15,42,.76), rgba(12,35,84,.48)); }
 .hero-content { max-width: 880px; }
 .hero-content h1 {
   max-width: 18ch; margin: 0 auto 1rem; font-size: clamp(2.15rem, 5.2vw, 4.15rem);
@@ -164,8 +154,8 @@
 .hero-content p { max-width: 58ch; margin: 0 auto 1.65rem; color: rgba(255,255,255,.9); line-height: 1.75; }
 .hero-buttons { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: .8rem; }
 .hero-buttons a { margin: 0; font-weight: 700; letter-spacing: .005em; border-radius: 12px; }
-.hero-buttons .btn-success { background: #22c55e; border-color: #22c55e; box-shadow: 0 8px 22px rgba(34,197,94,.2); }
-.hero-buttons .btn-success:hover { background: #16a34a; border-color: #16a34a; }
+.hero-buttons .btn-primary { background: #2563eb; border-color: #2563eb; box-shadow: 0 8px 22px rgba(37,99,235,.2); }
+.hero-buttons .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; }
 .benefit-card { border: 1px solid rgba(32,58,67,.07); box-shadow: 0 8px 24px rgba(0,0,0,.09); }
 .benefit-card i { display: inline-block; }
 .benefit-card h5 { color: #203a43; letter-spacing: -.02em; }
@@ -173,7 +163,7 @@
 .gallery { border: 1px solid rgba(255,255,255,.32); box-shadow: 0 18px 44px rgba(0,0,0,.12); }
 .gallery h2, .video-section h2 { font-size: clamp(1.65rem, 3.5vw, 2.45rem); font-weight: 800; letter-spacing: -.035em; }
 .gallery-card { box-shadow: 0 8px 22px rgba(15,32,39,.12); }
-.gallery-card:focus-visible { outline: 3px solid #22c55e; outline-offset: 4px; }
+.gallery-card:focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
 .gallery-card .overlay { padding: .9rem 1rem; font-weight: 700; letter-spacing: .015em; background: linear-gradient(to top, rgba(8,20,25,.8), rgba(8,20,25,0)); }
 .video-wrap { border: 1px solid rgba(255,255,255,.15); border-radius: 16px; box-shadow: 0 18px 44px rgba(0,0,0,.25); }
 .floating-buttons a { box-shadow: 0 8px 22px rgba(0,0,0,.28); }
@@ -193,25 +183,25 @@
 .pricing-intro h2 { font-size: clamp(1.8rem, 4vw, 2.65rem); font-weight: 800; letter-spacing: -.04em; }
 .pricing-intro p { color: #66737a; line-height: 1.75; }
 .pricing-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.15rem; align-items: stretch; }
-.pricing-cycle { margin: .25rem 0 1rem; padding: .85rem; border-radius: 12px; background: #f3f8f5; border: 1px solid #dcebe1; }
+.pricing-cycle { margin: .25rem 0 1rem; padding: .85rem; border-radius: 12px; background: #f0f6ff; border: 1px solid #d8e8ff; }
 .pricing-cycle p { margin: .25rem 0; font-size: .94rem; color: #34434a; }
-.pricing-cycle strong { color: #173b2a; }
+.pricing-cycle strong { color: #14386e; }
 .pricing-cycle small { color: #68757b; }
 .pricing-card .btn + .btn { margin-top: .55rem; }
-.custom-plan { max-width: 850px; margin: 1.5rem auto 0; padding: clamp(1.3rem,3vw,2rem); border-radius: 18px; border: 1px solid #dce5e7; background: #edf5f2; text-align: center; }
+.custom-plan { max-width: 850px; margin: 1.5rem auto 0; padding: clamp(1.3rem,3vw,2rem); border-radius: 18px; border: 1px solid #dce5e7; background: #eef5ff; text-align: center; }
 .custom-plan h3 { font-weight: 800; }
 .custom-plan p { color: #526269; line-height: 1.7; }
 .pricing-card { position: relative; display: flex; flex-direction: column; background: #fff; border: 1px solid #e4e9eb; border-radius: 18px; padding: clamp(1.2rem,2.4vw,1.8rem); box-shadow: 0 8px 24px rgba(15,32,39,.07); transition: transform .25s ease, box-shadow .25s ease; }
 .pricing-card:hover { transform: translateY(-6px); box-shadow: 0 18px 38px rgba(15,32,39,.13); }
-.pricing-card.featured { border: 2px solid #22c55e; }
-.pricing-tag { display: inline-block; align-self: flex-start; margin-bottom: .8rem; padding: .35rem .65rem; border-radius: 999px; background: #e9f9ef; color: #16803d; font-size: .75rem; font-weight: 800; }
+.pricing-card.featured { border: 2px solid #2563eb; }
+.pricing-tag { display: inline-block; align-self: flex-start; margin-bottom: .8rem; padding: .35rem .65rem; border-radius: 999px; background: #eaf2ff; color: #1e40af; font-size: .75rem; font-weight: 800; }
 .pricing-card h3 { font-size: 1.25rem; font-weight: 800; }
-.pricing-price { margin: .7rem 0 1rem; color: #173b2a; font-size: clamp(2rem,4vw,2.65rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
+.pricing-price { margin: .7rem 0 1rem; color: #14386e; font-size: clamp(2rem,4vw,2.65rem); font-weight: 800; letter-spacing: -.05em; line-height: 1.1; }
 .pricing-price small { font-size: .88rem; font-weight: 600; letter-spacing: 0; color: #68757b; }
 .pricing-card p { color: #657078; line-height: 1.6; }
 .pricing-features { list-style: none; padding: 0; margin: .4rem 0 1.5rem; flex: 1; }
 .pricing-features li { padding: .55rem 0; border-bottom: 1px solid #eef1f2; color: #34434a; font-size: .94rem; }
-.pricing-features li i { color: #16a34a; margin-right: .45rem; }
+.pricing-features li i { color: #1d4ed8; margin-right: .45rem; }
 .pricing-card .btn { width: 100%; border-radius: 10px; font-weight: 700; padding: .8rem 1rem; }
 .pricing-note { margin: 1.3rem auto 0; max-width: 850px; text-align: center; font-size: .88rem; color: #6b777d; line-height: 1.65; }
 .one-time-wrap h3 { margin: 0 0 .25rem; font-size: 1.1rem; font-weight: 800; }
@@ -228,10 +218,10 @@
   text-decoration: none; box-shadow: 0 10px 26px rgba(0,0,0,.2);
   transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
 }
-.hero-buttons .btn-success { color: #10251a; background: #7cf0a5; border: 1px solid #7cf0a5; }
-.hero-buttons .btn-success:hover { color: #10251a; background: #a0f7bd; border-color: #a0f7bd; box-shadow: 0 14px 30px rgba(34,197,94,.28); }
+.hero-buttons .btn-primary { color: #07162f; background: #60a5fa; border: 1px solid #60a5fa; }
+.hero-buttons .btn-primary:hover { color: #07162f; background: #93c5fd; border-color: #93c5fd; box-shadow: 0 14px 30px rgba(37,99,235,.28); }
 .hero-buttons .btn-outline-light { color: #fff; background: rgba(12,25,30,.28); border: 1px solid rgba(255,255,255,.82); backdrop-filter: blur(8px); }
-.hero-buttons .btn-outline-light:hover { color: #172a22; background: #fff; border-color: #fff; }
+.hero-buttons .btn-outline-light:hover { color: #10274d; background: #fff; border-color: #fff; }
 .hero-buttons a:focus-visible, .pricing-card .btn:focus-visible, .custom-plan .btn:focus-visible { outline: 3px solid #facc15; outline-offset: 3px; }
 
 .pricing-section { color: #172b32; }
@@ -241,25 +231,22 @@
 .pricing-grid { gap: 1.35rem; }
 .pricing-card { padding: clamp(1.35rem, 2.5vw, 1.9rem); border: 1px solid #dce5e8; border-radius: 22px; box-shadow: 0 12px 32px rgba(20,45,52,.08); }
 .pricing-card:hover { transform: translateY(-5px); box-shadow: 0 20px 42px rgba(20,45,52,.14); }
-.pricing-card.featured { border: 2px solid #1da957; box-shadow: 0 16px 38px rgba(29,169,87,.14); background: linear-gradient(180deg, #fbfffc 0%, #fff 35%); }
-.pricing-tag { padding: .42rem .75rem; background: #e1f8e9; color: #146c37; letter-spacing: .025em; }
+.pricing-card.featured { border: 2px solid #3b82f6; box-shadow: 0 16px 38px rgba(59,130,246,.14); background: linear-gradient(180deg, #f7faff 0%, #fff 35%); }
+.pricing-tag { padding: .42rem .75rem; background: #e7f0ff; color: #1d4ed8; letter-spacing: .025em; }
 .pricing-card h3 { color: #1b343c; font-size: 1.35rem; letter-spacing: -.025em; }
 .pricing-card p { color: #46575e; line-height: 1.7; }
-.pricing-price { color: #146c37; margin: .85rem 0 1.1rem; }
+.pricing-price { color: #1d4ed8; margin: .85rem 0 1.1rem; }
 .pricing-price small { color: #46575e; font-size: .9rem; }
 .pricing-features li { color: #2e4148; line-height: 1.5; padding: .65rem 0; border-bottom-color: #e8eef0; }
-.pricing-features li i { color: #159447; }
+.pricing-features li i { color: #2563eb; }
 .pricing-card .btn { display: inline-flex; align-items: center; justify-content: center; gap: .45rem; min-height: 49px; padding: .85rem 1.1rem; border-radius: 999px; font-weight: 800; text-decoration: none; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-.pricing-card .btn-success { color: #fff; background: #168644; border-color: #168644; box-shadow: 0 8px 18px rgba(22,134,68,.2); }
-.pricing-card .btn-success:hover { background: #116d36; border-color: #116d36; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(22,134,68,.25); }
-.pricing-card .btn-outline-success { color: #16713b; background: #fff; border: 1.5px solid #239a52; }
-.pricing-card .btn-outline-success:hover { color: #fff; background: #168644; border-color: #168644; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22,134,68,.18); }
+.pricing-card .btn-primary { color: #fff; background: #2563eb; border-color: #2563eb; box-shadow: 0 8px 18px rgba(37,99,235,.2); }
+.pricing-card .btn-primary:hover { background: #1d4ed8; border-color: #1d4ed8; transform: translateY(-2px); box-shadow: 0 12px 24px rgba(37,99,235,.25); }
+.pricing-card .btn-outline-primary { color: #1e40af; background: #fff; border: 1.5px solid #3b82f6; }
+.pricing-card .btn-outline-primary:hover { color: #fff; background: #2563eb; border-color: #2563eb; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(37,99,235,.18); }
 .pricing-note { color: #4c5c62; font-size: .9rem; }
 .one-time-wrap > div:first-child { flex: 1; }
 .one-time-wrap p { color: #43565d; line-height: 1.65; margin-top: .35rem; }
--dark { flex-shrink: 0; color: #fff; background: #1b343c; border-color: #1b343c; padding-inline: 1.35rem; }
--dark:hover { background: #28505b; border-color: #28505b; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(27,52,60,.2); }
-
 /* Proporção 16:9: remove o excesso de espaço branco acima e abaixo do player. */
 .video-section { padding-inline: clamp(12px, 3vw, 28px); }
 .video-section h2 { margin-bottom: 1.5rem !important; }
@@ -278,7 +265,7 @@
 .pricing-section { position: relative; }
 .pricing-intro { max-width: 850px; margin-bottom: clamp(2rem, 4vw, 3.25rem); }
 .pricing-intro h2 {
-  color: #f7fbfc !important;
+  color: #f7fbff !important;
   font-size: clamp(2rem, 4.3vw, 3rem);
   line-height: 1.12;
   text-shadow: 0 3px 18px rgba(0,0,0,.28);
@@ -294,21 +281,21 @@
   isolation: isolate; overflow: hidden; min-height: 100%;
   border: 1px solid #dce7e9; border-radius: 24px;
   padding: clamp(1.35rem, 2.5vw, 2rem);
-  background: linear-gradient(155deg, #ffffff 0%, #f7fbfa 100%);
+  background: linear-gradient(155deg, #ffffff 0%, #f8faff 100%);
   box-shadow: 0 16px 38px rgba(0,0,0,.14);
 }
 .pricing-card::before {
   content: ""; position: absolute; z-index: -1; inset: 0 0 auto; height: 6px;
-  background: linear-gradient(90deg, #1b8f4b, #71dfa0);
+  background: linear-gradient(90deg, #1d4ed8, #93c5fd);
 }
 .pricing-card:hover { transform: translateY(-8px); box-shadow: 0 24px 48px rgba(0,0,0,.2); }
 .pricing-card.featured {
-  border: 2px solid #29c765;
-  background: linear-gradient(155deg, #f1fff6 0%, #ffffff 54%, #f7fbfa 100%);
-  box-shadow: 0 18px 42px rgba(24,160,79,.2);
+  border: 2px solid #60a5fa;
+  background: linear-gradient(155deg, #eff6ff 0%, #ffffff 54%, #f8faff 100%);
+  box-shadow: 0 18px 42px rgba(59,130,246,.2);
   transform: translateY(-7px);
 }
-.pricing-card.featured::before { height: 8px; background: linear-gradient(90deg, #149447, #57e58d, #149447); }
+.pricing-card.featured::before { height: 8px; background: linear-gradient(90deg, #2563eb, #60a5fa, #2563eb); }
 .pricing-tag { font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; }
 .pricing-card h3 { font-size: clamp(1.25rem, 1.8vw, 1.48rem); line-height: 1.2; margin-bottom: .65rem; }
 .pricing-card p { min-height: 5.1em; font-size: .97rem; }
@@ -318,16 +305,11 @@
 .pricing-features li i { flex: 0 0 auto; margin-top: .18rem; }
 .pricing-card .btn {
   min-height: 52px; border-radius: 14px; font-size: .98rem;
-  letter-spacing: .01em; box-shadow: 0 8px 18px rgba(20,60,40,.1);
+  letter-spacing: .01em; box-shadow: 0 8px 18px rgba(27,75,148,.1);
 }
-.pricing-card .btn-outline-success { border-width: 1.5px; background: #f7fff9; }
-.pricing-card .btn-success { background: linear-gradient(135deg, #168644, #22b45b); border: 0; }
+.pricing-card .btn-outline-primary { border-width: 1.5px; background: #f2f7ff; }
+.pricing-card .btn-primary { background: linear-gradient(135deg, #1d4ed8, #3b82f6); border: 0; }
 .pricing-card .btn:hover { transform: translateY(-3px); }
-  max-width: 1000px; margin: 2rem auto 0; padding: clamp(1.4rem, 3vw, 2rem);
-  border: 1px solid rgba(216,233,237,.95); border-left: 6px solid #22a957;
-  border-radius: 24px; background: linear-gradient(120deg, #fff 0%, #f0f8f7 100%);
-  box-shadow: 0 18px 40px rgba(0,0,0,.12);
-}
 .pricing-note { color: #d5e1e4 !important; max-width: 900px; margin: 1.4rem auto 0; text-align: center; line-height: 1.65; }
 @media (max-width: 900px) {
   .pricing-card p { min-height: 0; }
@@ -342,19 +324,19 @@
 /* FAQ: leitura clara e acordeões acessíveis */
 .faq-section { max-width: 900px; margin: clamp(2.5rem, 6vw, 5rem) auto 1rem; padding: 0 clamp(.75rem, 2vw, 1rem); color: #f5fafb; }
 .faq-heading { text-align: center; margin-bottom: 1.5rem; }
-.faq-kicker { display: inline-block; margin-bottom: .55rem; color: #78e6a0; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-.faq-heading h2 { color: #f7fbfc; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.035em; }
+.faq-kicker { display: inline-block; margin-bottom: .55rem; color: #93c5fd; font-size: .78rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.faq-heading h2 { color: #f7fbff; font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; letter-spacing: -.035em; }
 .faq-heading p { color: #d7e5e9; line-height: 1.7; }
 .faq-list { display: grid; gap: .8rem; }
 .faq-item { border: 1px solid rgba(215,232,236,.2); border-radius: 16px; background: rgba(255,255,255,.055); overflow: hidden; }
-.faq-item summary { position: relative; padding: 1.1rem 3rem 1.1rem 1.2rem; cursor: pointer; color: #f7fbfc; font-weight: 750; line-height: 1.5; list-style: none; }
+.faq-item summary { position: relative; padding: 1.1rem 3rem 1.1rem 1.2rem; cursor: pointer; color: #f7fbff; font-weight: 750; line-height: 1.5; list-style: none; }
 .faq-item summary::-webkit-details-marker { display: none; }
-.faq-item summary::after { content: '+'; position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%); color: #78e6a0; font-size: 1.5rem; font-weight: 500; }
+.faq-item summary::after { content: '+'; position: absolute; right: 1.2rem; top: 50%; transform: translateY(-50%); color: #93c5fd; font-size: 1.5rem; font-weight: 500; }
 .faq-item[open] summary::after { content: '−'; }
 .faq-item p { margin: 0; padding: 0 1.2rem 1.2rem; color: #d6e3e7; line-height: 1.75; }
-.faq-item a { color: #8aefad; text-decoration: underline; text-underline-offset: 3px; }
+.faq-item a { color: #bfdbfe; text-decoration: underline; text-underline-offset: 3px; }
 .faq-item a:hover { color: #fff; }
-@media (prefers-reduced-motion: no-preference) { .faq-item { transition: border-color .2s ease, background .2s ease; } .faq-item:hover { border-color: rgba(120,230,160,.55); background: rgba(255,255,255,.075); } }
+@media (prefers-reduced-motion: no-preference) { .faq-item { transition: border-color .2s ease, background .2s ease; } .faq-item:hover { border-color: rgba(147,197,253,.55); background: rgba(255,255,255,.075); } }
 
 /* ===== Refinamento responsivo: planos mais leves em tablet e celular ===== */
 @media (max-width: 768px) {
@@ -381,7 +363,6 @@
   .pricing-card .btn { width: 100%; min-height: 48px; padding: .78rem 1rem; border-radius: 13px; font-size: .94rem; }
   .pricing-note { margin-top: 1rem; padding-inline: .2rem; font-size: .82rem; line-height: 1.6; }
   .one-time-wrap h3 { font-size: 1.13rem; line-height: 1.3; }
-  { width: 100%; min-height: 48px; border-radius: 13px; }
 }
 @media (max-width: 380px) {
   .pricing-section { padding-inline: .75rem; }
@@ -396,13 +377,32 @@
 
 /* Grade exclusiva dos três planos anuais */
 .pricing-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.billing-cycle-label { display:block; align-self:flex-start; margin: -.25rem 0 .55rem; padding:.38rem .65rem; border-radius:8px; background:#eaf7ee; color:#176b38; font-size:.74rem; font-weight:900; letter-spacing:.06em; }
+.billing-cycle-label { display:block; align-self:flex-start; margin: -.25rem 0 .55rem; padding:.38rem .65rem; border-radius:8px; background:#e9f1ff; color:#1d4ed8; font-size:.74rem; font-weight:900; letter-spacing:.06em; }
 .billing-cycle-explainer { min-height:0 !important; margin:.1rem 0 .25rem; color:#3f555d !important; font-size:.88rem !important; line-height:1.5 !important; font-weight:600; }
 .pricing-card .pricing-price { margin:.35rem 0 .9rem; padding:.75rem 0 .9rem; }
 .pricing-card.featured { transform:none; }
 .pricing-card.featured:hover { transform:translateY(-5px); }
 @media(max-width: 900px) { .pricing-grid { grid-template-columns:repeat(2,minmax(0,1fr)); max-width:850px; margin:0 auto; } }
 @media(max-width: 560px) { .pricing-grid { grid-template-columns:minmax(0,1fr); max-width:460px; } }
+
+
+
+/* Upgrade azul: contraste, profundidade e estados interativos. */
+.pricing-group-heading { margin: 0 0 1.15rem; text-align: center; }
+.pricing-group-heading h3 { color: #bfdbfe; font-size: .85rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+.benefit-card { border: 1px solid #dbeafe; background: linear-gradient(150deg, #fff 0%, #f7faff 100%); }
+.benefit-card i { color: #2563eb; filter: drop-shadow(0 5px 10px rgba(37,99,235,.14)); }
+@media (hover:hover) and (pointer:fine) {
+  .benefit-card:hover { border-color: #93c5fd; box-shadow: 0 18px 42px rgba(37,99,235,.13); }
+  .pricing-card:hover { border-color: #93c5fd; }
+}
+.hero-buttons .btn-primary { border-color: #60a5fa; box-shadow: 0 12px 30px rgba(37,99,235,.27); }
+.hero-buttons .btn-primary:hover { box-shadow: 0 14px 34px rgba(59,130,246,.37); }
+.pricing-card.featured { box-shadow: 0 18px 44px rgba(37,99,235,.19); }
+.pricing-tag, .billing-cycle-label { background: #eaf2ff; color: #1e40af; }
+@media (prefers-reduced-motion: reduce) {
+  .benefit-card, .pricing-card { transition: none !important; }
+}
 
 </style>
 
@@ -413,7 +413,7 @@
     <h1>Sua empresa merece uma presença digital à altura do seu trabalho</h1>
     <p>A MedidaWeb desenvolve sites profissionais, responsivos e pensados para apresentar seu negócio com clareza, credibilidade e personalidade.</p>
     <div class="hero-buttons">
-      <a href="#planos" class="btn btn-success btn-lg">Conheça os planos</a>
+      <a href="#planos" class="btn btn-primary btn-lg">Conheça os planos</a>
       <a href="https://wa.me/27995082429" target="_blank" class="btn btn-outline-light btn-lg" rel="noopener">Fale no WhatsApp</a>
     </div>
   </div>
@@ -479,7 +479,7 @@
         <li><i class="bi bi-check-circle-fill"></i> Tipografia legível e estrutura organizada</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/tyyd1dd3bn34glfj" target="_blank" rel="noopener">Consultar contratação</a>
+      <a class="btn btn-outline-primary" href="https://www.asaas.com/000/c/tyyd1dd3bn34glfj" target="_blank" rel="noopener">Consultar contratação</a>
     </article>
     <article class="pricing-card featured" data-reveal>
       <span class="pricing-tag">Mais escolhido</span>
@@ -498,7 +498,7 @@
         <li><i class="bi bi-check-circle-fill"></i> Tipografia e hierarquia visual cuidadas</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-success" href="https://www.asaas.com/000/c/8g1ylxgtj7ylmasb" target="_blank" rel="noopener">Consultar contratação</a>
+      <a class="btn btn-primary" href="https://www.asaas.com/000/c/8g1ylxgtj7ylmasb" target="_blank" rel="noopener">Consultar contratação</a>
     </article>
     <article class="pricing-card" data-reveal>
       <span class="pricing-tag">Completo</span>
@@ -517,7 +517,7 @@
         <li><i class="bi bi-check-circle-fill"></i> Boa tipografia e navegação intuitiva</li>
         <li><i class="bi bi-check-circle-fill"></i> Domínio, hospedagem e manutenção incluídos</li>
       </ul>
-      <a class="btn btn-outline-success" href="https://www.asaas.com/000/c/nocd64s9ap75f25n" target="_blank" rel="noopener">Consultar contratação</a>
+      <a class="btn btn-outline-primary" href="https://www.asaas.com/000/c/nocd64s9ap75f25n" target="_blank" rel="noopener">Consultar contratação</a>
     </article>
   </div>
   <p class="pricing-note">Os valores apresentados correspondem ao ciclo completo de 12 meses, com cobrança anual — não são mensalidades. Os planos são voltados a sites estáticos de apresentação, como landing pages e sites institucionais; não incluem sistemas com banco de dados, login/área restrita ou integração de pagamentos. Recursos e alterações além do escopo devem ser combinados previamente. A hospedagem e o endereço do site dependem das condições, políticas e termos de uso da Render.</p>

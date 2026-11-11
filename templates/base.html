@@ -18,16 +18,16 @@
 
     :root {
       color-scheme: dark;
-      --brand-950: #07151d;
-      --brand-900: #0a202b;
-      --brand-800: #103747;
-      --brand-700: #175064;
-      --accent: #36e58b;
-      --accent-strong: #19c875;
+      --brand-950: #060d20;
+      --brand-900: #0a1732;
+      --brand-800: #11274d;
+      --brand-700: #18418a;
+      --accent: #60a5fa;
+      --accent-strong: #2563eb;
       --text-main: #f5fbff;
       --text-muted: #afc3ce;
-      --surface: rgba(13, 35, 47, .82);
-      --surface-strong: #0d2633;
+      --surface: rgba(12, 30, 67, .82);
+      --surface-strong: #0e1c3b;
       --surface-border: rgba(160, 211, 226, .16);
       --shadow-lg: 0 28px 80px rgba(0, 0, 0, .34);
       --radius-xl: 28px;
@@ -42,8 +42,8 @@
       line-height: 1.7; letter-spacing: -.012em;
       background:
         radial-gradient(ellipse at 12% 8%, rgba(37, 123, 145, .22), transparent 36rem),
-        radial-gradient(ellipse at 90% 45%, rgba(31, 123, 94, .12), transparent 32rem),
-        linear-gradient(135deg, var(--brand-950) 0%, var(--brand-900) 48%, #102f3b 100%);
+        radial-gradient(ellipse at 90% 45%, rgba(59, 130, 246, .12), transparent 32rem),
+        linear-gradient(135deg, var(--brand-950) 0%, var(--brand-900) 48%, #101e40 100%);
       background-attachment: scroll;
       -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
       overflow-x: clip;
@@ -66,7 +66,7 @@
     .site-navbar {
       position: fixed; inset: 0 0 auto; z-index: 1200;
       padding: 15px 0;
-      background: rgba(5, 19, 27, .76);
+      background: rgba(5, 16, 39, .80);
       border-bottom: 1px solid rgba(184, 230, 242, .13);
       backdrop-filter: blur(22px) saturate(150%);
       -webkit-backdrop-filter: blur(22px) saturate(150%);
@@ -81,10 +81,10 @@
     }
     .site-navbar .navbar-brand::before {
       content: ""; width: 11px; height: 11px; border-radius: 4px;
-      background: var(--accent); box-shadow: 0 0 0 5px rgba(54,229,139,.1), 0 0 22px rgba(54,229,139,.4);
+      background: var(--accent); box-shadow: 0 0 0 5px rgba(59,130,246,.1), 0 0 22px rgba(59,130,246,.4);
       transform: rotate(45deg);
     }
-    .site-navbar .navbar-brand:hover { color: #c9ffe3; transform: translateY(-1px); }
+    .site-navbar .navbar-brand:hover { color: #dbeafe; transform: translateY(-1px); }
     .site-navbar .nav-link {
       position: relative; margin-left: .35rem; padding: .68rem 1rem !important;
       border: 1px solid transparent; border-radius: 999px;
@@ -106,7 +106,7 @@
       background: rgba(255,255,255,.04); box-shadow: none !important;
     }
     .navbar-toggler:hover { background: rgba(255,255,255,.1); }
-    .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(54,229,139,.18) !important; }
+    .navbar-toggler:focus { box-shadow: 0 0 0 3px rgba(59,130,246,.18) !important; }
     .site-wrapper { padding-top: 82px; }
 
     .hero-section {
@@ -118,13 +118,13 @@
     }
     .hero-section::before {
       content: ""; position: absolute; inset: 0; z-index: -1;
-      background: linear-gradient(115deg, rgba(3,15,21,.88) 0%, rgba(6,24,32,.68) 48%, rgba(6,25,30,.43) 100%);
+      background: linear-gradient(115deg, rgba(3,11,31,.88) 0%, rgba(7,22,53,.72) 48%, rgba(12,37,83,.52) 100%);
     }
     .hero-section::after {
       content: ""; position: absolute; z-index: -1; width: min(68vw, 760px); aspect-ratio: 1;
       right: -18%; bottom: -55%; border-radius: 50%;
-      border: 1px solid rgba(54,229,139,.18);
-      box-shadow: 0 0 0 55px rgba(54,229,139,.025), 0 0 0 110px rgba(54,229,139,.02);
+      border: 1px solid rgba(59,130,246,.18);
+      box-shadow: 0 0 0 55px rgba(59,130,246,.025), 0 0 0 110px rgba(59,130,246,.02);
       pointer-events: none;
     }
     .hero-overlay { position: absolute; inset: 0; background: transparent; }
@@ -153,7 +153,7 @@
       color:rgba(255,255,255,.8); background:rgba(255,255,255,.035); font-size:1.3rem;
       transition: transform .25s var(--ease-out), color .2s ease, background .2s ease, border-color .2s ease;
     }
-    .site-footer .social a:hover { transform:translateY(-4px); color:var(--accent); background:rgba(54,229,139,.09); border-color:rgba(54,229,139,.32); }
+    .site-footer .social a:hover { transform:translateY(-4px); color:var(--accent); background:rgba(59,130,246,.09); border-color:rgba(59,130,246,.32); }
     .site-footer small { display:block; margin:0; color:rgba(206,224,232,.6); text-align:center; font-size:.76rem; letter-spacing:.04em; }
 
     .menu-backdrop {
@@ -199,20 +199,20 @@
 #scrollProgress {
   position: fixed; inset: 0 auto auto 0; z-index: 2000;
   width: 0%; height: 3px; pointer-events: none;
-  background: linear-gradient(90deg, #20d681 0%, #8dffc0 45%, #41c9e8 100%);
-  box-shadow: 0 0 16px rgba(54,229,139,.48);
+  background: linear-gradient(90deg, #2563eb 0%, #60a5fa 45%, #93c5fd 100%);
+  box-shadow: 0 0 16px rgba(59,130,246,.48);
   transform-origin: left center;
 }
 .site-navbar.is-scrolled {
   padding-top: 8px; padding-bottom: 8px;
-  background: rgba(4,16,23,.91);
+  background: rgba(6,17,43,.94);
   box-shadow: 0 16px 44px rgba(0,0,0,.28);
 }
 .site-navbar.is-scrolled .navbar-brand { font-size: 1.22rem; }
 .site-navbar .navbar-brand::before { animation: brandPulse 3.4s ease-in-out infinite; }
 @keyframes brandPulse {
-  0%,100% { box-shadow: 0 0 0 4px rgba(54,229,139,.08), 0 0 14px rgba(54,229,139,.24); }
-  50% { box-shadow: 0 0 0 7px rgba(54,229,139,.035), 0 0 25px rgba(54,229,139,.5); }
+  0%,100% { box-shadow: 0 0 0 4px rgba(59,130,246,.08), 0 0 14px rgba(59,130,246,.24); }
+  50% { box-shadow: 0 0 0 7px rgba(59,130,246,.035), 0 0 25px rgba(59,130,246,.5); }
 }
 .site-navbar .nav-link { overflow: hidden; }
 .site-navbar .nav-link::before {
@@ -224,7 +224,7 @@
 .site-footer .social a { position: relative; overflow: hidden; }
 .site-footer .social a::after {
   content: ""; position: absolute; inset: 0; border-radius: inherit;
-  background: radial-gradient(circle, rgba(54,229,139,.2), transparent 68%);
+  background: radial-gradient(circle, rgba(59,130,246,.2), transparent 68%);
   opacity: 0; transform: scale(.5); transition: opacity .25s ease, transform .35s ease;
 }
 .site-footer .social a:hover::after { opacity: 1; transform: scale(1.4); }
@@ -232,14 +232,14 @@
   position: fixed; z-index: 998; left: clamp(14px, 2.2vw, 28px); bottom: clamp(16px, 2.5vw, 30px);
   display: grid; place-items: center; width: 48px; height: 48px;
   border: 1px solid rgba(255,255,255,.2); border-radius: 16px;
-  color: #eafff3; background: rgba(10,32,43,.78);
+  color: #eef5ff; background: rgba(14,39,83,.82);
   box-shadow: 0 12px 30px rgba(0,0,0,.25); backdrop-filter: blur(14px);
   opacity: 0; visibility: hidden; transform: translateY(12px) scale(.92);
   transition: opacity .25s ease, visibility .25s ease, transform .25s cubic-bezier(.2,.75,.25,1), border-color .2s ease;
   cursor: pointer;
 }
 #backToTop.is-visible { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-#backToTop:hover { transform: translateY(-4px); border-color: rgba(54,229,139,.6); color: #54f0a5; }
+#backToTop:hover { transform: translateY(-4px); border-color: rgba(59,130,246,.6); color: #60a5fa; }
 #backToTop i { font-size: 1.15rem; }
 @media (hover: hover) and (pointer: fine) {
   .benefit-card, .sobre-card, .gallery-card { will-change: transform; }
@@ -252,7 +252,7 @@
 
 /* === LIVING UI: movimento ambiente contínuo === */
 :root {
-  --living-green: #36e995;
+  --living-blue: #3b82f6;
   --living-cyan: #39cde9;
   --living-duration: 14s;
 }
@@ -263,7 +263,7 @@ body::after {
   content: ""; position: fixed; z-index: -1; pointer-events: none;
   width: 42vw; height: 42vw; min-width: 320px; min-height: 320px;
   left: -12vw; top: 18vh; border-radius: 50%;
-  background: radial-gradient(circle, rgba(34,214,129,.095), rgba(34,214,129,.025) 38%, transparent 70%);
+  background: radial-gradient(circle, rgba(59,130,246,.095), rgba(59,130,246,.025) 38%, transparent 70%);
   filter: blur(16px); animation: ambientOrb 24s ease-in-out infinite alternate;
 }
 @keyframes textureDrift {
@@ -279,12 +279,12 @@ body::after {
   animation: brandHeartbeat 3s ease-in-out infinite !important;
 }
 @keyframes brandHeartbeat {
-  0%,100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 4px rgba(54,229,139,.08), 0 0 14px rgba(54,229,139,.24); }
-  50% { transform: rotate(135deg) scale(1.12); box-shadow: 0 0 0 8px rgba(54,229,139,.035), 0 0 27px rgba(54,229,139,.58); }
+  0%,100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 0 4px rgba(59,130,246,.08), 0 0 14px rgba(59,130,246,.24); }
+  50% { transform: rotate(135deg) scale(1.12); box-shadow: 0 0 0 8px rgba(59,130,246,.035), 0 0 27px rgba(59,130,246,.58); }
 }
 .site-footer::after {
   content:""; position:absolute; z-index:-1; left:-30%; top:0; width:55%; height:1px;
-  background:linear-gradient(90deg,transparent,rgba(54,229,139,.7),rgba(57,205,233,.55),transparent);
+  background:linear-gradient(90deg,transparent,rgba(59,130,246,.7),rgba(57,205,233,.55),transparent);
   animation: footerLightSweep 8s ease-in-out infinite;
 }
 @keyframes footerLightSweep {
@@ -300,8 +300,8 @@ body::after {
 @keyframes progressShimmer { to { background-position: 220% 0; } }
 #backToTop.is-visible { animation: topButtonGlow 3.5s ease-in-out infinite; }
 @keyframes topButtonGlow {
-  0%,100% { box-shadow:0 12px 30px rgba(0,0,0,.25), 0 0 0 0 rgba(54,229,139,0); }
-  50% { box-shadow:0 12px 30px rgba(0,0,0,.25), 0 0 0 7px rgba(54,229,139,.07); }
+  0%,100% { box-shadow:0 12px 30px rgba(0,0,0,.25), 0 0 0 0 rgba(59,130,246,0); }
+  50% { box-shadow:0 12px 30px rgba(0,0,0,.25), 0 0 0 7px rgba(59,130,246,.07); }
 }
 @media (prefers-reduced-motion: reduce) {
   body::before, body::after, .site-navbar .navbar-brand::before,

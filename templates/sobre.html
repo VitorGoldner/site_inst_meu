@@ -13,18 +13,18 @@
   padding:clamp(2.7rem,7vw,6.3rem) clamp(1.3rem,5vw,4.5rem);
   margin:clamp(1rem,3vw,2rem) 0 clamp(2.2rem,5vw,4rem);
   text-align:left; color:#fff; border:1px solid rgba(169,225,237,.18); border-radius:30px;
-  background:linear-gradient(115deg,rgba(7,24,33,.97) 0%,rgba(13,54,68,.93) 58%,rgba(14,78,66,.82) 100%);
+  background:linear-gradient(115deg,rgba(7,17,46,.97) 0%,rgba(13,40,96,.93) 58%,rgba(20,65,145,.82) 100%);
   box-shadow:0 35px 90px rgba(0,0,0,.27);
 }
 .sobre-hero::before {
   content:""; position:absolute; z-index:-1; top:-45%; right:-7%; width:min(50vw,520px); aspect-ratio:1;
-  border:1px solid rgba(54,229,139,.24); border-radius:50%;
-  box-shadow:0 0 0 34px rgba(54,229,139,.035),0 0 0 75px rgba(54,229,139,.025),0 0 0 120px rgba(54,229,139,.018);
+  border:1px solid rgba(59,130,246,.24); border-radius:50%;
+  box-shadow:0 0 0 34px rgba(59,130,246,.035),0 0 0 75px rgba(59,130,246,.025),0 0 0 120px rgba(59,130,246,.018);
 }
 .sobre-hero::after {
   content:"SOBRE A MEDIDAWEB"; display:inline-flex; margin-bottom:1.25rem;
-  padding:.5rem .8rem; border:1px solid rgba(54,229,139,.3); border-radius:999px;
-  color:#aaffd0; background:rgba(54,229,139,.075); font-size:.65rem; font-weight:800; letter-spacing:.18em;
+  padding:.5rem .8rem; border:1px solid rgba(59,130,246,.3); border-radius:999px;
+  color:#bfdbfe; background:rgba(59,130,246,.075); font-size:.65rem; font-weight:800; letter-spacing:.18em;
 }
 .sobre-hero h2 { max-width:13ch; margin:0 0 1.15rem; font-size:clamp(2.8rem,6vw,5rem); font-weight:800; line-height:.98; letter-spacing:-.075em; }
 .sobre-hero p { max-width:62ch; margin:0; color:rgba(238,249,252,.78); font-size:clamp(1.03rem,1.7vw,1.2rem); line-height:1.85; }
@@ -33,7 +33,7 @@
   padding:0 clamp(.5rem,3vw,2rem); text-align:center;
 }
 .sobre-intro::before {
-  content:"“"; display:block; height:3.2rem; color:#51efa0; font-family:Georgia,serif;
+  content:"“"; display:block; height:3.2rem; color:#93c5fd; font-family:Georgia,serif;
   font-size:5.3rem; line-height:1; opacity:.8;
 }
 .sobre-intro p { margin:0; color:#d0e0e7; font-size:clamp(1.05rem,2vw,1.3rem); line-height:1.9; font-weight:400; }
@@ -45,7 +45,7 @@
   position:relative; isolation:isolate; overflow:hidden; display:flex; flex-direction:column; align-items:flex-start; text-align:left;
   min-height:300px; padding:clamp(1.5rem,3vw,2.2rem);
   border:1px solid rgba(175,222,235,.15); border-radius:24px;
-  background:linear-gradient(150deg,rgba(16,48,62,.9),rgba(8,30,41,.96));
+  background:linear-gradient(150deg,rgba(15,41,89,.92),rgba(8,25,62,.96));
   box-shadow:0 18px 45px rgba(0,0,0,.15);
   transition:transform .35s cubic-bezier(.2,.75,.25,1), border-color .3s ease, box-shadow .35s ease, background .3s ease;
 }
@@ -56,18 +56,18 @@
 }
 .sobre-card::after {
   content:""; position:absolute; z-index:-1; right:-45px; bottom:-75px; width:170px; height:170px;
-  border-radius:50%; background:rgba(54,229,139,.07); filter:blur(1px);
+  border-radius:50%; background:rgba(59,130,246,.07); filter:blur(1px);
   transition:transform .4s ease, background .4s ease;
 }
-.sobre-card:hover { transform:translateY(-9px); border-color:rgba(54,229,139,.43); box-shadow:0 30px 65px rgba(0,0,0,.28); background:linear-gradient(150deg,rgba(18,60,72,.98),rgba(8,30,41,.98)); }
-.sobre-card:hover::after { transform:scale(1.35); background:rgba(54,229,139,.12); }
+.sobre-card:hover { transform:translateY(-9px); border-color:rgba(59,130,246,.43); box-shadow:0 30px 65px rgba(0,0,0,.28); background:linear-gradient(150deg,rgba(21,54,117,.98),rgba(8,25,62,.98)); }
+.sobre-card:hover::after { transform:scale(1.35); background:rgba(59,130,246,.12); }
 .sobre-card i {
   display:grid; place-items:center; width:58px; height:58px; margin:0 0 1.7rem;
-  border:1px solid rgba(54,229,139,.25); border-radius:18px; color:#54f0a5;
-  background:linear-gradient(145deg,rgba(54,229,139,.14),rgba(54,229,139,.035));
+  border:1px solid rgba(59,130,246,.25); border-radius:18px; color:#60a5fa;
+  background:linear-gradient(145deg,rgba(59,130,246,.14),rgba(59,130,246,.035));
   font-size:1.75rem; transition:transform .3s ease, background .3s ease;
 }
-.sobre-card:hover i { transform:translateY(-3px) rotate(-4deg); background:rgba(54,229,139,.18); }
+.sobre-card:hover i { transform:translateY(-3px) rotate(-4deg); background:rgba(59,130,246,.18); }
 .sobre-card h3 { margin:0 0 .8rem; color:#fff; font-size:1.45rem; font-weight:800; letter-spacing:-.045em; }
 .sobre-card p { max-width:36ch; margin:0; color:#afc4ce; font-size:.94rem; line-height:1.8; overflow-wrap:anywhere; hyphens:auto; }
 @media (max-width: 991.98px) {
@@ -101,8 +101,8 @@
 .sobre-card:nth-child(2) { transition-delay: .05s; }
 .sobre-card:nth-child(3) { transition-delay: .1s; }
 .sobre-card:hover { transform: translateY(-9px) perspective(900px) rotateX(1deg); }
-.sobre-card i { box-shadow: 0 0 0 0 rgba(54,229,139,0); }
-.sobre-card:hover i { box-shadow: 0 0 0 7px rgba(54,229,139,.045), 0 12px 28px rgba(54,229,139,.08); }
+.sobre-card i { box-shadow: 0 0 0 0 rgba(59,130,246,0); }
+.sobre-card:hover i { box-shadow: 0 0 0 7px rgba(59,130,246,.045), 0 12px 28px rgba(59,130,246,.08); }
 @keyframes sobreOrbit {
   from { transform: translate3d(0,0,0) rotate(-4deg); }
   to { transform: translate3d(-20px,16px,0) rotate(7deg); }
@@ -137,11 +137,11 @@
   animation: none;
 }
 .sobre-hero::after {
-  box-shadow:0 0 0 0 rgba(54,229,139,.1);
+  box-shadow:0 0 0 0 rgba(59,130,246,.1);
   animation: sobreBadgeIn .35s .05s both cubic-bezier(.2,.75,.25,1);
 }
 .sobre-intro::before {
-  text-shadow:0 0 24px rgba(54,229,139,.18);
+  text-shadow:0 0 24px rgba(59,130,246,.18);
   animation: none;
 }
 .sobre-card::after { animation: none; }
@@ -159,12 +159,12 @@
   50% { opacity:1; }
 }
 @keyframes aboutLabelPulse {
-  0%,100% { box-shadow:0 0 0 0 rgba(54,229,139,.05); }
-  50% { box-shadow:0 0 0 5px rgba(54,229,139,.035); }
+  0%,100% { box-shadow:0 0 0 0 rgba(59,130,246,.05); }
+  50% { box-shadow:0 0 0 5px rgba(59,130,246,.035); }
 }
 @keyframes quoteGlow {
-  0%,100% { text-shadow:0 0 14px rgba(54,229,139,.1); }
-  50% { text-shadow:0 0 30px rgba(54,229,139,.32); }
+  0%,100% { text-shadow:0 0 14px rgba(59,130,246,.1); }
+  50% { text-shadow:0 0 30px rgba(59,130,246,.32); }
 }
 @keyframes aboutCardAura {
   from { transform:translate3d(0,0,0) scale(.9); opacity:.55; }
@@ -191,6 +191,14 @@
   .sobre-hero, .sobre-hero::before, .sobre-hero::after, .sobre-hero h2, .sobre-hero p,
   .sobre-intro::before, .sobre-card, .sobre-card::after, .sobre-card i { animation: none !important; transition: none !important; }
 }
+
+
+/* Upgrade azul: superfícies refinadas e foco visível. */
+.sobre-card { border-color: rgba(147,197,253,.23); }
+.sobre-card:hover { border-color: rgba(96,165,250,.65); box-shadow: 0 25px 65px rgba(13,55,133,.24); }
+.sobre-card i { color: #93c5fd; }
+.sobre-hero { box-shadow: 0 30px 85px rgba(7,26,78,.33); }
+
 </style>
 
 <div class="sobre-wrap">
